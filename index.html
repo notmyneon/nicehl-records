@@ -628,8 +628,10 @@
           <span class="section-kicker">League Highs and Lows</span>
           <h2>Top 10 Regular-Season Records</h2>
           <p class="panel-note">
-            Weekly records use every completed matchup. Single-season records use
-            seasons marked complete in <code>seasons.json</code>. A franchise may
+            Weekly records use every completed matchup and can be separated by
+            inclusive calendar length. The 7-Day Average option converts every
+            score to a seven-day equivalent for comparison. Single-season records
+            use seasons marked complete in <code>seasons.json</code>. A team may
             appear more than once.
           </p>
         </div>
@@ -651,6 +653,15 @@
               <option value="bestSeasonAverage">Highest Season Scoring Average</option>
               <option value="bestSeasonDifferential">Best Season Differential</option>
             </optgroup>
+          </select>
+
+          <label for="weekLengthSelect" id="weekLengthLabel">Week Length</label>
+          <select id="weekLengthSelect">
+            <option value="all">All Week Lengths — Actual Scores</option>
+            <option value="normalized">All Weeks — 7-Day Average</option>
+            <option value="short">Fewer than 7 Days</option>
+            <option value="standard">Exactly 7 Days</option>
+            <option value="long">More than 7 Days</option>
           </select>
         </div>
       </div>
@@ -721,7 +732,6 @@
             <tr>
               <th>Rank</th>
               <th class="team-column">Team</th>
-              <th class="team-column">Franchise</th>
               <th>GP</th><th>W</th><th>L</th><th>T</th><th>Win%</th>
               <th>PF</th><th>PA</th><th>Diff</th><th>Avg PF</th>
             </tr>
@@ -957,6 +967,79 @@
       return Number.isFinite(fantasyPoints) ? fantasyPoints + adjustment : null;
     }
 
+    function parseFantraxDatePart(value) {
+      const match = String(value || "").trim().match(
+        /^(?:[A-Za-z]{3,9}\s+)?([A-Za-z]{3})\s+(\d{1,2}),\s+(\d{4})$/
+      );
+      if (!match) return null;
+
+      const months = {
+        Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+        Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+      };
+      const month = months[match[1]];
+      if (!Number.isInteger(month)) return null;
+
+      return Date.UTC(Number(match[3]), month, Number(match[2]));
+    }
+
+    function getWeekLengthDays(dateRange) {
+      const cleaned = String(dateRange || "")
+        .trim()
+        .replace(/^\(/, "")
+        .replace(/\)$/, "");
+
+      const parts = cleaned.split(/\s+-\s+/);
+      if (parts.length !== 2) return null;
+
+      const start = parseFantraxDatePart(parts[0]);
+      const end = parseFantraxDatePart(parts[1]);
+      if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return null;
+
+      return Math.round((end - start) / 86400000) + 1;
+    }
+
+    function getWeekLengthCategory(days) {
+      if (!Number.isFinite(days)) return "unknown";
+      if (days < 7) return "short";
+      if (days === 7) return "standard";
+      return "long";
+    }
+
+    function weekLengthLabel(days) {
+      if (!Number.isFinite(days)) return "Unknown";
+      return `${days} day${days === 1 ? "" : "s"}`;
+    }
+
+    function sevenDayEquivalent(value, days) {
+      const number = Number(value);
+      const length = Number(days);
+      if (!Number.isFinite(number) || !Number.isFinite(length) || length <= 0) {
+        return null;
+      }
+      return number / length * 7;
+    }
+
+    function recordScore(item, normalized) {
+      return normalized
+        ? sevenDayEquivalent(item.score, item.weekLengthDays)
+        : item.score;
+    }
+
+    function recordOpponentScore(item, normalized) {
+      return normalized
+        ? sevenDayEquivalent(item.opponentScore, item.weekLengthDays)
+        : item.opponentScore;
+    }
+
+    function recordMargin(item, normalized) {
+      const score = recordScore(item, normalized);
+      const opponentScore = recordOpponentScore(item, normalized);
+      return Number.isFinite(score) && Number.isFinite(opponentScore)
+        ? score - opponentScore
+        : null;
+    }
+
     function buildLeagueData() {
       app.games = [];
 
@@ -967,6 +1050,9 @@
         weeks.forEach(week => {
           const period = Number(week?.scoringPeriod);
           const matchups = Array.isArray(week?.matchups) ? week.matchups : [];
+          const dateRange = String(week?.dateRange || "");
+          const weekLengthDays = getWeekLengthDays(dateRange);
+          const weekLengthCategory = getWeekLengthCategory(weekLengthDays);
 
           matchups.forEach((matchup, matchupIndex) => {
             const awayScore = scoreOf(matchup?.away);
@@ -983,7 +1069,9 @@
               seasonLabel: entry.label || season,
               seasonComplete: Boolean(entry.complete),
               period,
-              dateRange: String(week?.dateRange || ""),
+              dateRange,
+              weekLengthDays,
+              weekLengthCategory,
               awayName,
               homeName,
               awayFranchiseId: resolveFranchiseId(awayName),
@@ -1251,6 +1339,7 @@
       });
 
       document.getElementById("recordCategorySelect").addEventListener("change", renderRecords);
+      document.getElementById("weekLengthSelect").addEventListener("change", renderRecords);
       document.getElementById("seasonSelect").addEventListener("change", renderSeasonStandings);
       document.getElementById("franchiseSelect").addEventListener("change", renderFranchiseHistory);
       document.getElementById("headToHeadA").addEventListener("change", renderHeadToHead);
@@ -1349,6 +1438,9 @@
           opponentScore: game.homeScore,
           season: game.season,
           period: game.period,
+          dateRange: game.dateRange,
+          weekLengthDays: game.weekLengthDays,
+          weekLengthCategory: game.weekLengthCategory,
           game
         },
         {
@@ -1360,6 +1452,9 @@
           opponentScore: game.awayScore,
           season: game.season,
           period: game.period,
+          dateRange: game.dateRange,
+          weekLengthDays: game.weekLengthDays,
+          weekLengthCategory: game.weekLengthCategory,
           game
         }
       ]);
@@ -1367,7 +1462,15 @@
 
     function renderRecords() {
       const category = document.getElementById("recordCategorySelect")?.value || "highestWeeklyScore";
-      const sides = weeklySides();
+      const weekLengthSelect = document.getElementById("weekLengthSelect");
+      const weekLengthLabelElement = document.getElementById("weekLengthLabel");
+      const selectedWeekLength = weekLengthSelect?.value || "all";
+      const normalized = selectedWeekLength === "normalized";
+      const allSides = weeklySides();
+      const sides = selectedWeekLength === "all" || normalized
+        ? allSides
+        : allSides.filter(item => item.weekLengthCategory === selectedWeekLength);
+
       const completedSeasonIds = new Set(
         app.seasons
           .filter(({ entry }) => Boolean(entry.complete))
@@ -1377,79 +1480,103 @@
         item => completedSeasonIds.has(item.season)
       );
 
+      const scoreValue = item => recordScore(item, normalized);
+      const opponentValue = item => recordOpponentScore(item, normalized);
+      const marginValue = item => recordMargin(item, normalized);
+      const numberDecimals = normalized ? 1 : 0;
+
+      const resultText = item => {
+        if (!normalized) return weeklyResultText(item);
+
+        const score = scoreValue(item);
+        const opponentScore = opponentValue(item);
+        const result = score > opponentScore ? "Won" : score < opponentScore ? "Lost" : "Tied";
+        const connector = result === "Won" ? "over" : result === "Lost" ? "to" : "with";
+
+        return `${result} ${formatNumber(score, 1)}–${formatNumber(opponentScore, 1)} ${connector} ${item.opponentName} · actual ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`;
+      };
+
       const weeklyDefinitions = {
         highestWeeklyScore: {
-          label: "Score",
+          label: normalized ? "7-Day Avg" : "Score",
           rows: sides.slice().sort((a, b) =>
-            b.score - a.score ||
-            b.opponentScore - a.opponentScore ||
+            scoreValue(b) - scoreValue(a) ||
+            opponentValue(b) - opponentValue(a) ||
             compareWeeklyRecordDates(b, a)
           ),
-          value: item => formatNumber(item.score),
-          result: item => weeklyResultText(item),
+          value: item => formatNumber(scoreValue(item), numberDecimals),
+          result: resultText,
           detail: item => `${item.season} · Week ${item.period}`
         },
         lowestWeeklyScore: {
-          label: "Score",
+          label: normalized ? "7-Day Avg" : "Score",
           rows: sides.slice().sort((a, b) =>
-            a.score - b.score ||
-            a.opponentScore - b.opponentScore ||
+            scoreValue(a) - scoreValue(b) ||
+            opponentValue(a) - opponentValue(b) ||
             compareWeeklyRecordDates(a, b)
           ),
-          value: item => formatNumber(item.score),
-          result: item => weeklyResultText(item),
+          value: item => formatNumber(scoreValue(item), numberDecimals),
+          result: resultText,
           detail: item => `${item.season} · Week ${item.period}`
         },
         biggestWin: {
-          label: "Margin",
+          label: normalized ? "7-Day Margin" : "Margin",
           rows: sides
             .filter(item => item.score > item.opponentScore)
             .sort((a, b) =>
-              (b.score - b.opponentScore) - (a.score - a.opponentScore) ||
-              b.score - a.score ||
+              marginValue(b) - marginValue(a) ||
+              scoreValue(b) - scoreValue(a) ||
               compareWeeklyRecordDates(b, a)
             ),
-          value: item => `+${formatNumber(item.score - item.opponentScore)}`,
-          result: item => `${formatNumber(item.score)}–${formatNumber(item.opponentScore)} vs. ${item.opponentName}`,
+          value: item => `+${formatNumber(marginValue(item), numberDecimals)}`,
+          result: item => normalized
+            ? `${formatNumber(scoreValue(item), 1)}–${formatNumber(opponentValue(item), 1)} vs. ${item.opponentName} · actual ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`
+            : `${formatNumber(item.score)}–${formatNumber(item.opponentScore)} vs. ${item.opponentName}`,
           detail: item => `${item.season} · Week ${item.period}`
         },
         closestWin: {
-          label: "Margin",
+          label: normalized ? "7-Day Margin" : "Margin",
           rows: sides
             .filter(item => item.score > item.opponentScore)
             .sort((a, b) =>
-              (a.score - a.opponentScore) - (b.score - b.opponentScore) ||
-              a.score - b.score ||
+              marginValue(a) - marginValue(b) ||
+              scoreValue(a) - scoreValue(b) ||
               compareWeeklyRecordDates(a, b)
             ),
-          value: item => `+${formatNumber(item.score - item.opponentScore)}`,
-          result: item => `${formatNumber(item.score)}–${formatNumber(item.opponentScore)} vs. ${item.opponentName}`,
+          value: item => `+${formatNumber(marginValue(item), numberDecimals)}`,
+          result: item => normalized
+            ? `${formatNumber(scoreValue(item), 1)}–${formatNumber(opponentValue(item), 1)} vs. ${item.opponentName} · actual ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`
+            : `${formatNumber(item.score)}–${formatNumber(item.opponentScore)} vs. ${item.opponentName}`,
           detail: item => `${item.season} · Week ${item.period}`
         },
         mostPointsInLoss: {
-          label: "Score",
+          label: normalized ? "7-Day Avg" : "Score",
           rows: sides
             .filter(item => item.score < item.opponentScore)
             .sort((a, b) =>
-              b.score - a.score ||
-              b.opponentScore - a.opponentScore ||
+              scoreValue(b) - scoreValue(a) ||
+              opponentValue(b) - opponentValue(a) ||
               compareWeeklyRecordDates(b, a)
             ),
-          value: item => formatNumber(item.score),
-          result: item => `Lost ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} to ${item.opponentName}`,
+          value: item => formatNumber(scoreValue(item), numberDecimals),
+          result: item => normalized
+            ? `Lost ${formatNumber(scoreValue(item), 1)}–${formatNumber(opponentValue(item), 1)} to ${item.opponentName} · actual ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`
+            : `Lost ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} to ${item.opponentName}`,
           detail: item => `${item.season} · Week ${item.period}`
         },
         leastPointsInWin: {
-          label: "Score",
+          label: normalized ? "7-Day Avg" : "Score",
           rows: sides
             .filter(item => item.score > item.opponentScore)
             .sort((a, b) =>
-              a.score - b.score ||
-              a.opponentScore - b.opponentScore ||
+              scoreValue(a) - scoreValue(b) ||
+              opponentValue(a) - opponentValue(b) ||
               compareWeeklyRecordDates(a, b)
             ),
-          value: item => formatNumber(item.score),
-          result: item => `Won ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} over ${item.opponentName}`,
+          value: item => formatNumber(scoreValue(item), numberDecimals),
+          result: item => normalized
+            ? `Won ${formatNumber(scoreValue(item), 1)}–${formatNumber(opponentValue(item), 1)} over ${item.opponentName} · actual ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`
+            : `Won ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} over ${item.opponentName}`,
           detail: item => `${item.season} · Week ${item.period}`
         }
       };
@@ -1508,8 +1635,12 @@
       const season = seasonDefinitions[category];
 
       if (weekly) {
+        weekLengthSelect.disabled = false;
+        weekLengthLabelElement.style.opacity = "1";
         renderWeeklyTopTen(weekly);
       } else if (season) {
+        weekLengthSelect.disabled = true;
+        weekLengthLabelElement.style.opacity = "0.55";
         renderSeasonTopTen(season);
       }
     }
@@ -1537,11 +1668,11 @@
       document.getElementById("recordsHead").innerHTML = `
         <tr>
           <th>Rank</th>
-          <th class="team-column">Franchise</th>
-          <th class="team-column">Name Used</th>
+          <th class="team-column">Team</th>
           <th>${escapeHtml(definition.label)}</th>
           <th class="team-column">Result</th>
           <th>Season / Week</th>
+          <th>Length</th>
         </tr>
       `;
 
@@ -1549,14 +1680,14 @@
         ? rows.map((item, index) => `
             <tr>
               <td><span class="rank-number">${index + 1}</span></td>
-              <td class="team-column"><span class="team-name">${escapeHtml(franchiseName(item.franchiseId))}</span></td>
-              <td class="team-column">${escapeHtml(item.historicalName)}</td>
+              <td class="team-column"><span class="team-name">${escapeHtml(item.historicalName)}</span></td>
               <td>${escapeHtml(definition.value(item))}</td>
               <td class="team-column">${escapeHtml(definition.result(item))}</td>
               <td>${escapeHtml(definition.detail(item))}</td>
+              <td title="${escapeHtml(item.dateRange)}">${escapeHtml(weekLengthLabel(item.weekLengthDays))}</td>
             </tr>
           `).join("")
-        : `<tr><td colspan="6" class="empty">No qualifying weekly records are available.</td></tr>`;
+        : `<tr><td colspan="6" class="empty">No qualifying weekly records are available for this week length.</td></tr>`;
     }
 
     function renderSeasonTopTen(definition) {
@@ -1564,8 +1695,7 @@
       document.getElementById("recordsHead").innerHTML = `
         <tr>
           <th>Rank</th>
-          <th class="team-column">Franchise</th>
-          <th class="team-column">Name Used</th>
+          <th class="team-column">Team</th>
           <th>${escapeHtml(definition.label)}</th>
           <th>Season</th>
           <th>Record</th>
@@ -1579,8 +1709,7 @@
         ? rows.map((item, index) => `
             <tr>
               <td><span class="rank-number">${index + 1}</span></td>
-              <td class="team-column"><span class="team-name">${escapeHtml(item.name)}</span></td>
-              <td class="team-column">${escapeHtml(item.historicalName)}</td>
+              <td class="team-column"><span class="team-name">${escapeHtml(item.historicalName)}</span></td>
               <td>${escapeHtml(definition.value(item))}</td>
               <td>${escapeHtml(item.season)}</td>
               <td>${item.wins}-${item.losses}${item.ties ? `-${item.ties}` : ""}</td>
@@ -1589,7 +1718,7 @@
               <td class="${numberClass(item.differential)}">${formatSigned(item.differential)}</td>
             </tr>
           `).join("")
-        : `<tr><td colspan="9" class="empty">No completed-season records are available.</td></tr>`;
+        : `<tr><td colspan="8" class="empty">No completed-season records are available.</td></tr>`;
     }
 
     function maxBy(items, valueFunction) {
@@ -1657,7 +1786,6 @@
             <tr>
               <td><span class="rank-number">${index + 1}</span></td>
               <td class="team-column"><span class="team-name">${escapeHtml(item.historicalName)}</span></td>
-              <td class="team-column">${escapeHtml(item.name)}</td>
               <td>${item.games}</td>
               <td>${item.wins}</td>
               <td>${item.losses}</td>
@@ -1669,7 +1797,7 @@
               <td>${formatNumber(item.averageFor, 1)}</td>
             </tr>
           `).join("")
-        : `<tr><td colspan="12" class="empty">No completed matchups are available for this season.</td></tr>`;
+        : `<tr><td colspan="11" class="empty">No completed matchups are available for this season.</td></tr>`;
     }
 
     function renderHeadToHead() {
