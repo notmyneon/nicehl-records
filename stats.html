@@ -345,7 +345,7 @@
         <div class="control-group">
           <label for="scopeSelect">Record Type</label>
           <select id="scopeSelect">
-            <option value="season">Season Totals</option>
+            <option value="season">Regular-Season Totals</option>
             <option value="week">Weekly Totals</option>
           </select>
 
@@ -358,10 +358,17 @@
           <label for="seasonFilter">Season</label>
           <select id="seasonFilter"></select>
 
+          <label for="stageSelect" id="stageLabel">Stage</label>
+          <select id="stageSelect">
+            <option value="regular" selected>Regular Season</option>
+            <option value="playoffs">Playoffs</option>
+            <option value="all">All Periods</option>
+          </select>
+
           <label for="weekModeSelect" id="weekModeLabel">Weekly Comparison</label>
           <select id="weekModeSelect">
+            <option value="adjusted" selected>All Weeks — Schedule-Adjusted 7-Day Average</option>
             <option value="all">All Weeks — Actual Totals</option>
-            <option value="adjusted">All Weeks — Schedule-Adjusted 7-Day Average</option>
             <option value="short">Fewer than 7 Days</option>
             <option value="standard">Exactly 7 Days</option>
             <option value="long">More than 7 Days</option>
@@ -379,11 +386,14 @@
   </main>
 
   <script>
-    const FALLBACK_MANIFEST = {"defaultSeason": "2019-20", "seasons": [{"id": "2019-20", "label": "2019–20", "file": "nicehl-2019-20-team-stat-records.json", "complete": true}]};
+    const FALLBACK_MANIFEST = {"defaultSeason": "2025-26", "seasons": [{"id": "2025-26", "label": "2025–26", "file": "nicehl-2025-26-team-stat-records.json", "complete": true}, {"id": "2024-25", "label": "2024–25", "file": "nicehl-2024-25-team-stat-records.json", "complete": true}, {"id": "2023-24", "label": "2023–24", "file": "nicehl-2023-24-team-stat-records.json", "complete": true}, {"id": "2022-23", "label": "2022–23", "file": "nicehl-2022-23-team-stat-records.json", "complete": true}, {"id": "2021-22", "label": "2021–22", "file": "nicehl-2021-22-team-stat-records.json", "complete": true}, {"id": "2020-21", "label": "2020–21", "file": "nicehl-2020-21-team-stat-records.json", "complete": true}, {"id": "2019-20", "label": "2019–20", "file": "nicehl-2019-20-team-stat-records.json", "complete": true}]};
+
+    const FALLBACK_PERIOD_TYPES = {"version": 1, "seasons": {"2019-20": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 22, "regularSeasonPeriodCount": 22}, "2020-21": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 13, "regularSeasonPeriodCount": 13}, "2021-22": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 23, "regularSeasonPeriodCount": 23}, "2022-23": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 21, "regularSeasonPeriodCount": 21}, "2023-24": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 22, "regularSeasonPeriodCount": 22}, "2024-25": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 21, "regularSeasonPeriodCount": 21}, "2025-26": {"regularSeasonPeriods": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], "firstRegularSeasonPeriod": 1, "lastRegularSeasonPeriod": 19, "regularSeasonPeriodCount": 19}}};
 
     const app = {
       manifest: null,
       scheduleVolume: null,
+      periodTypes: null,
       files: [],
       categories: [],
       seasonRows: [],
@@ -396,9 +406,10 @@
       const status = document.getElementById("status");
 
       try {
-        const [manifestResult, scheduleResult] = await Promise.allSettled([
+        const [manifestResult, scheduleResult, periodResult] = await Promise.allSettled([
           fetchJson("./data/stat-seasons.json"),
-          fetchJson("./data/nhl-schedule-volume.json")
+          fetchJson("./data/nhl-schedule-volume.json"),
+          fetchJson("./data/stat-period-types.json")
         ]);
 
         app.manifest = manifestResult.status === "fulfilled"
@@ -408,6 +419,10 @@
         app.scheduleVolume = scheduleResult.status === "fulfilled"
           ? scheduleResult.value
           : null;
+
+        app.periodTypes = periodResult.status === "fulfilled"
+          ? periodResult.value
+          : FALLBACK_PERIOD_TYPES;
 
         const results = await Promise.allSettled(
           (app.manifest.seasons || []).map(async entry => {
@@ -430,8 +445,16 @@
         renderSummary();
         renderRecords();
 
+        const playoffPeriods = new Set(
+          app.weekRows
+            .filter(row => row.stageKey === "playoffs")
+            .map(row => `${row.season}-${row.scoringPeriod}`)
+        ).size;
+
         status.textContent =
-          `Loaded ${app.files.length} statistical season${app.files.length === 1 ? "" : "s"}.`;
+          `Loaded ${app.files.length} statistical season${app.files.length === 1 ? "" : "s"}. ` +
+          `Season totals use regular-season weeks only. ` +
+          `${playoffPeriods} playoff scoring period${playoffPeriods === 1 ? "" : "s"} identified.`;
       } catch (error) {
         console.error(error);
         status.classList.add("error");
@@ -447,48 +470,194 @@
 
     function buildRecords() {
       const categoryMap = new Map();
+      app.seasonRows = [];
+      app.weekRows = [];
 
-      app.files.forEach(({ entry, file }) => {
+      app.files.forEach(({ file }) => {
         (file.categories || []).forEach(category => {
           if (!categoryMap.has(category.id)) categoryMap.set(category.id, category);
         });
+      });
 
-        (file.seasonTotals || []).forEach(team => {
-          app.seasonRows.push({
-            season: entry.id,
-            seasonLabel: entry.label || entry.id,
-            teamId: team.teamId,
-            teamName: team.teamName,
-            stats: team.stats || {}
-          });
-        });
+      app.files.forEach(({ entry, file }) => {
+        const weeks = file.weeks || [];
+        const maximumStatPeriod = Math.max(
+          0,
+          ...weeks.map(week => Number(week.scoringPeriod) || 0)
+        );
 
-        (file.weeks || []).forEach(week => {
-          const schedulePeriod =
-            app.scheduleVolume?.seasons?.[entry.id]?.periods?.[String(week.scoringPeriod)] || null;
+        const periodMetadata =
+          app.periodTypes?.seasons?.[entry.id] || {};
+
+        const regularPeriods = new Set(
+          (periodMetadata.regularSeasonPeriods || []).map(Number)
+        );
+
+        weeks.forEach(week => {
+          const scoringPeriod = Number(week.scoringPeriod);
+          const regularSeason =
+            regularPeriods.size
+              ? regularPeriods.has(scoringPeriod)
+              : scoringPeriod <= Number(periodMetadata.lastRegularSeasonPeriod);
+
+          const stageKey = regularSeason ? "regular" : "playoffs";
+          const stageLabel = regularSeason
+            ? "Regular Season"
+            : scoringPeriod === maximumStatPeriod
+              ? "Playoff Final"
+              : "Playoffs";
+
+          const scheduleMetrics = getScheduleMetrics(
+            entry.id,
+            scoringPeriod,
+            week.dateRange || ""
+          );
 
           (week.teams || []).forEach(team => {
             app.weekRows.push({
               season: entry.id,
               seasonLabel: entry.label || entry.id,
-              scoringPeriod: Number(week.scoringPeriod),
+              scoringPeriod,
               dateRange: week.dateRange || "",
               teamId: team.teamId,
               teamName: team.teamName,
               stats: team.stats || {},
-              calendarDays: Number(schedulePeriod?.calendarDays),
-              nhlGames: Number(schedulePeriod?.nhlGames),
-              activeNhlDays: Number(schedulePeriod?.activeNhlDays),
-              normalSevenDayGames: Number(
-                schedulePeriod?.normalSevenDayGames ??
-                app.scheduleVolume?.seasons?.[entry.id]?.normalSevenDayGames
-              )
+              stageKey,
+              stageLabel,
+              ...scheduleMetrics
             });
           });
         });
       });
 
+      const seasonMap = new Map();
+
+      app.weekRows
+        .filter(row => row.stageKey === "regular")
+        .forEach(row => {
+          const key = `${row.season}::${row.teamId}`;
+
+          if (!seasonMap.has(key)) {
+            seasonMap.set(key, {
+              season: row.season,
+              seasonLabel: row.seasonLabel,
+              teamId: row.teamId,
+              teamName: row.teamName,
+              stats: {}
+            });
+          }
+
+          const seasonRow = seasonMap.get(key);
+          seasonRow.teamName = row.teamName;
+
+          Object.entries(row.stats || {}).forEach(([categoryId, value]) => {
+            seasonRow.stats[categoryId] =
+              Number(seasonRow.stats[categoryId] || 0) + Number(value || 0);
+          });
+        });
+
+      app.seasonRows = Array.from(seasonMap.values());
       app.categories = Array.from(categoryMap.values());
+    }
+
+    function getScheduleMetrics(season, scoringPeriod, dateRange) {
+      const seasonSchedule = app.scheduleVolume?.seasons?.[season] || null;
+      const regularPeriod =
+        seasonSchedule?.periods?.[String(scoringPeriod)] || null;
+
+      if (regularPeriod) {
+        return {
+          calendarDays: Number(regularPeriod.calendarDays),
+          nhlGames: Number(regularPeriod.nhlGames),
+          activeNhlDays: Number(regularPeriod.activeNhlDays),
+          inactiveNhlDays: Number(regularPeriod.inactiveNhlDays),
+          normalSevenDayGames: Number(
+            regularPeriod.normalSevenDayGames ??
+            seasonSchedule?.normalSevenDayGames
+          )
+        };
+      }
+
+      const parsedRange = parseFantraxDateRange(dateRange);
+      const dailyCounts = seasonSchedule?.dailyGameCounts || {};
+      const normalSevenDayGames = Number(seasonSchedule?.normalSevenDayGames);
+
+      if (!parsedRange) {
+        return {
+          calendarDays: null,
+          nhlGames: null,
+          activeNhlDays: null,
+          inactiveNhlDays: null,
+          normalSevenDayGames
+        };
+      }
+
+      let nhlGames = 0;
+      let activeNhlDays = 0;
+      let cursor = new Date(parsedRange.start.getTime());
+
+      while (cursor <= parsedRange.end) {
+        const dateKey = isoDate(cursor);
+        const games = Number(dailyCounts[dateKey] || 0);
+        nhlGames += games;
+        if (games > 0) activeNhlDays += 1;
+        cursor.setUTCDate(cursor.getUTCDate() + 1);
+      }
+
+      const calendarDays =
+        Math.round(
+          (parsedRange.end.getTime() - parsedRange.start.getTime()) / 86400000
+        ) + 1;
+
+      return {
+        calendarDays,
+        nhlGames,
+        activeNhlDays,
+        inactiveNhlDays: calendarDays - activeNhlDays,
+        normalSevenDayGames
+      };
+    }
+
+    function parseFantraxDateRange(value) {
+      const cleaned = String(value || "").trim().replace(/^\(|\)$/g, "");
+      const parts = cleaned.split(/\s+-\s+/);
+      if (parts.length !== 2) return null;
+
+      const start = parseFantraxDate(parts[0]);
+      const end = parseFantraxDate(parts[1]);
+
+      return start && end ? { start, end } : null;
+    }
+
+    function parseFantraxDate(value) {
+      const cleaned = String(value || "")
+        .replace(/^[A-Za-z]{3}\s+/, "")
+        .trim();
+
+      const match = cleaned.match(/^([A-Za-z]{3})\s+(\d{1,2}),\s+(\d{4})$/);
+      if (!match) return null;
+
+      const months = {
+        Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+        Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+      };
+
+      const month = months[match[1]];
+      if (!Number.isInteger(month)) return null;
+
+      return new Date(Date.UTC(
+        Number(match[3]),
+        month,
+        Number(match[2])
+      ));
+    }
+
+    function isoDate(date) {
+      return [
+        date.getUTCFullYear(),
+        String(date.getUTCMonth() + 1).padStart(2, "0"),
+        String(date.getUTCDate()).padStart(2, "0")
+      ].join("-");
     }
 
     function populateControls() {
@@ -550,13 +719,24 @@
       });
       document.getElementById("statSelect").addEventListener("change", renderRecords);
       document.getElementById("seasonFilter").addEventListener("change", renderRecords);
+      document.getElementById("stageSelect").addEventListener("change", () => {
+        const stage = document.getElementById("stageSelect").value;
+        if (stage === "playoffs") {
+          document.getElementById("weekModeSelect").value = "adjusted";
+        }
+        renderRecords();
+      });
       document.getElementById("weekModeSelect").addEventListener("change", renderRecords);
     }
 
     function updateScopeControls() {
       const weekly = document.getElementById("scopeSelect").value === "week";
+
       document.getElementById("weekModeSelect").disabled = !weekly;
       document.getElementById("weekModeLabel").style.opacity = weekly ? "1" : ".5";
+
+      document.getElementById("stageSelect").disabled = !weekly;
+      document.getElementById("stageLabel").style.opacity = weekly ? "1" : ".5";
     }
 
     function renderSummary() {
@@ -573,11 +753,12 @@
       const categoryId = document.getElementById("statSelect").value;
       const seasonFilter = document.getElementById("seasonFilter").value;
       const weekMode = document.getElementById("weekModeSelect").value;
+      const stageFilter = document.getElementById("stageSelect").value;
 
       if (scope === "season") {
         renderSeasonRecords(categoryId, seasonFilter);
       } else {
-        renderWeeklyRecords(categoryId, seasonFilter, weekMode);
+        renderWeeklyRecords(categoryId, seasonFilter, weekMode, stageFilter);
       }
     }
 
@@ -613,9 +794,10 @@
         : `<tr><td colspan="4" class="empty">No season records are available.</td></tr>`;
     }
 
-    function renderWeeklyRecords(categoryId, seasonFilter, weekMode) {
+    function renderWeeklyRecords(categoryId, seasonFilter, weekMode, stageFilter) {
       let rows = app.weekRows
-        .filter(row => seasonFilter === "all" || row.season === seasonFilter);
+        .filter(row => seasonFilter === "all" || row.season === seasonFilter)
+        .filter(row => stageFilter === "all" || row.stageKey === stageFilter);
 
       if (weekMode === "short") {
         rows = rows.filter(row => row.calendarDays < 7);
@@ -625,7 +807,12 @@
         rows = rows.filter(row => row.calendarDays > 7);
       }
 
-      const adjusted = weekMode === "adjusted";
+      // Playoff comparisons always use a seven-day equivalent. This prevents
+      // two-week championship finals from being ranked directly against
+      // ordinary one-week playoff rounds.
+      const adjusted =
+        weekMode === "adjusted" ||
+        stageFilter === "playoffs";
 
       rows = rows
         .map(row => {
@@ -636,11 +823,21 @@
             Number.isFinite(row.normalSevenDayGames) &&
             row.normalSevenDayGames > 0;
 
-          const value = adjusted && canAdjust
+          const rowNeedsAdjustment =
+            adjusted ||
+            (row.stageKey === "playoffs" && row.calendarDays > 7);
+
+          const value = rowNeedsAdjustment && canAdjust
             ? actualValue * row.normalSevenDayGames / row.nhlGames
             : actualValue;
 
-          return { ...row, actualValue, value, canAdjust };
+          return {
+            ...row,
+            actualValue,
+            value,
+            canAdjust,
+            adjustedValue: rowNeedsAdjustment && canAdjust
+          };
         })
         .filter(row => !adjusted || row.canAdjust)
         .sort((a, b) =>
@@ -651,13 +848,18 @@
         )
         .slice(0, 10);
 
+      const valueHeading = rows.some(row => row.adjustedValue)
+        ? "Sched. 7-Day Avg"
+        : "Value";
+
       document.getElementById("recordsHead").innerHTML = `
         <tr>
           <th>Rank</th>
           <th class="team-column">Team</th>
-          <th>${adjusted ? "Sched. 7-Day Avg" : "Value"}</th>
+          <th>${valueHeading}</th>
           <th>Season</th>
           <th>Week</th>
+          <th>Stage</th>
           <th>NHL Schedule</th>
         </tr>
       `;
@@ -667,19 +869,35 @@
             <tr>
               <td><span class="rank-number">${index + 1}</span></td>
               <td class="team-column"><span class="team-name">${escapeHtml(row.teamName)}</span></td>
-              <td class="record-value" title="${adjusted ? `Actual total: ${formatNumber(row.actualValue)}` : ""}">
-                ${formatNumber(row.value, adjusted ? 1 : 0)}
+              <td
+                class="record-value"
+                title="${row.adjustedValue ? `Actual total: ${formatNumber(row.actualValue)}` : ""}"
+              >
+                ${formatNumber(row.value, row.adjustedValue ? 1 : 0)}
               </td>
               <td>${escapeHtml(row.seasonLabel)}</td>
               <td>${row.scoringPeriod}</td>
+              <td>${stageLabel(row)}</td>
               <td>${scheduleLabel(row)}</td>
             </tr>
           `).join("")
-        : `<tr><td colspan="6" class="empty">No weekly records are available for this filter.</td></tr>`;
+        : `<tr><td colspan="7" class="empty">No weekly records are available for this filter.</td></tr>`;
+    }
+
+    function stageLabel(row) {
+      const duration =
+        Number.isFinite(row.calendarDays) && row.calendarDays > 7
+          ? ` · ${row.calendarDays} days`
+          : "";
+
+      return `${escapeHtml(row.stageLabel)}${duration}`;
     }
 
     function scheduleLabel(row) {
-      if (!Number.isFinite(row.nhlGames)) return escapeHtml(row.dateRange || "—");
+      if (!Number.isFinite(row.nhlGames) || row.nhlGames <= 0) {
+        return escapeHtml(row.dateRange || "—");
+      }
+
       return `${row.nhlGames} games · ${row.activeNhlDays} active days`;
     }
 
