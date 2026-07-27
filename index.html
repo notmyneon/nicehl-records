@@ -154,6 +154,38 @@
       background: var(--burgundy);
     }
 
+
+    .page-tabs {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px;
+      border: 1px solid rgba(191, 193, 199, 0.38);
+      border-radius: 13px;
+      background: rgba(5, 5, 5, 0.58);
+    }
+
+    .page-tab {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 13px;
+      border-radius: 9px;
+      color: var(--silver-light);
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .page-tab.active {
+      color: var(--white);
+      background: var(--burgundy);
+    }
+
     .status {
       margin: 14px 0 0;
       padding: 11px 14px;
@@ -586,6 +618,10 @@
           </p>
         </div>
       </div>
+      <nav class="page-tabs" aria-label="Record book pages">
+        <a class="page-tab active" href="index.html" aria-current="page">Overall Records</a>
+        <a class="page-tab" href="stats.html">Statistical Records</a>
+      </nav>
     </header>
 
     <div id="status" class="status">Loading season files and rebuilding the NiceHL record book…</div>
