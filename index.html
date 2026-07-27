@@ -273,6 +273,12 @@
       line-height: 1.45;
     }
 
+    .season-state {
+      margin: 0 0 9px;
+      color: var(--silver);
+      font-size: 12px;
+    }
+
     .control-group {
       display: flex;
       align-items: center;
@@ -372,6 +378,19 @@
     .team-name {
       font-weight: 900;
       color: var(--white);
+    }
+
+    .team-score-inline {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 9px;
+      white-space: nowrap;
+    }
+
+    .team-score-inline .score {
+      color: var(--silver-light);
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
     }
 
     .historical-name {
@@ -591,10 +610,6 @@
         <div>
           <span class="section-kicker">Franchise Records</span>
           <h2>All-Time Standings</h2>
-          <p class="panel-note">
-            Historical team names are combined under the continuing franchise.
-            Click a statistic heading to reorder the table.
-          </p>
         </div>
       </div>
       <div class="table-wrap">
@@ -626,13 +641,6 @@
         <div>
           <span class="section-kicker">League Highs and Lows</span>
           <h2>Top 10 Regular-Season Records</h2>
-          <p class="panel-note">
-            Weekly records use every completed matchup and can be separated by
-            inclusive calendar length. The 7-Day Average option converts every
-            score to a seven-day equivalent for comparison. Single-season records
-            use seasons marked complete in <code>seasons.json</code>. A team may
-            appear more than once.
-          </p>
         </div>
         <div class="control-group">
           <label for="recordCategorySelect">Record</label>
@@ -677,11 +685,6 @@
         <div>
           <span class="section-kicker">Runs of Form</span>
           <h2>Top 20 Longest Streaks</h2>
-          <p class="panel-note">
-            Every distinct winning and losing streak is ranked. A franchise may
-            appear multiple times, and streaks continue across season boundaries
-            when the franchise identity remains the same.
-          </p>
         </div>
       </div>
       <div class="two-column">
@@ -715,16 +718,13 @@
         <div>
           <span class="section-kicker">Season Archive</span>
           <h2>Season-by-Season Standings</h2>
-          <p class="panel-note">
-            This table preserves the exact team name used in the selected season.
-          </p>
         </div>
         <div class="control-group">
           <label for="seasonSelect">Season</label>
           <select id="seasonSelect"></select>
         </div>
       </div>
-      <div id="seasonState" class="panel-note" style="margin-bottom:9px"></div>
+      <div id="seasonState" class="season-state"></div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -745,9 +745,6 @@
         <div>
           <span class="section-kicker">Rivalry Archive</span>
           <h2>Head-to-Head Records</h2>
-          <p class="panel-note">
-            Results are consolidated by franchise while each game displays the historical team names.
-          </p>
         </div>
         <div class="control-group">
           <label for="headToHeadA">Team A</label>
@@ -758,12 +755,12 @@
       </div>
       <div id="versusSummary" class="versus-summary"></div>
       <div class="table-wrap">
-        <table style="min-width:780px">
+        <table style="min-width:680px">
           <thead>
             <tr>
-              <th>Season</th><th>Week</th>
-              <th class="team-column">Team A Name</th><th>Score</th>
-              <th class="team-column">Team B Name</th><th>Score</th>
+              <th>Season</th>
+              <th class="team-column">Team A</th>
+              <th class="team-column">Team B</th>
               <th>Margin</th>
             </tr>
           </thead>
@@ -777,10 +774,6 @@
         <div>
           <span class="section-kicker">Deadlock Deciders</span>
           <h2>Tiebreaker Archive</h2>
-          <p class="panel-note">
-            These matchups finished level on raw fantasy points. Fantrax then
-            awarded an additional tiebreaker point to determine the winner.
-          </p>
         </div>
       </div>
 
@@ -810,10 +803,6 @@
         <div>
           <span class="section-kicker">Opponent-by-Opponent</span>
           <h2>Team vs. League</h2>
-          <p class="panel-note">
-            Select one franchise to view its all-time regular-season record against
-            every opponent, with points for and points against.
-          </p>
         </div>
         <div class="control-group">
           <label for="teamVsLeagueSelect">Team</label>
@@ -848,9 +837,6 @@
         <div>
           <span class="section-kicker">Identity and Results</span>
           <h2>Franchise History</h2>
-          <p class="panel-note">
-            Review every season, record, and historical name belonging to one franchise.
-          </p>
         </div>
         <div class="control-group">
           <label for="franchiseSelect">Franchise</label>
@@ -1890,7 +1876,7 @@
         document.getElementById("versusSummary").innerHTML =
           `<div class="empty" style="grid-column:1/-1">Choose two different franchises.</div>`;
         document.getElementById("headToHeadBody").innerHTML =
-          `<tr><td colspan="7" class="empty">No comparison selected.</td></tr>`;
+          `<tr><td colspan="4" class="empty">No comparison selected.</td></tr>`;
         return;
       }
 
@@ -1942,16 +1928,23 @@
             return `
               <tr>
                 <td>${escapeHtml(game.season)}</td>
-                <td>${game.period}</td>
-                <td class="team-column">${escapeHtml(nameA)}</td>
-                <td>${formatNumber(scoreA)}</td>
-                <td class="team-column">${escapeHtml(nameB)}</td>
-                <td>${formatNumber(scoreB)}</td>
+                <td class="team-column">
+                  <span class="team-score-inline">
+                    <span class="team-name">${escapeHtml(nameA)}</span>
+                    <span class="score">${formatNumber(scoreA)}</span>
+                  </span>
+                </td>
+                <td class="team-column">
+                  <span class="team-score-inline">
+                    <span class="team-name">${escapeHtml(nameB)}</span>
+                    <span class="score">${formatNumber(scoreB)}</span>
+                  </span>
+                </td>
                 <td class="${numberClass(diff)}">${formatSigned(diff)}</td>
               </tr>
             `;
           }).join("")
-        : `<tr><td colspan="7" class="empty">These franchises have not met in the loaded regular-season data.</td></tr>`;
+        : `<tr><td colspan="4" class="empty">These franchises have not met in the loaded regular-season data.</td></tr>`;
     }
 
     function getTiebreakerGames() {
