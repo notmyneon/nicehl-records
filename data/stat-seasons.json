@@ -1,0 +1,47 @@
+{
+  "defaultSeason": "2025-26",
+  "seasons": [
+    {
+      "id": "2025-26",
+      "label": "2025–26",
+      "file": "nicehl-2025-26-team-stat-records.json",
+      "complete": true
+    },
+    {
+      "id": "2024-25",
+      "label": "2024–25",
+      "file": "nicehl-2024-25-team-stat-records.json",
+      "complete": true
+    },
+    {
+      "id": "2023-24",
+      "label": "2023–24",
+      "file": "nicehl-2023-24-team-stat-records.json",
+      "complete": true
+    },
+    {
+      "id": "2022-23",
+      "label": "2022–23",
+      "file": "nicehl-2022-23-team-stat-records.json",
+      "complete": true
+    },
+    {
+      "id": "2021-22",
+      "label": "2021–22",
+      "file": "nicehl-2021-22-team-stat-records.json",
+      "complete": true
+    },
+    {
+      "id": "2020-21",
+      "label": "2020–21",
+      "file": "nicehl-2020-21-team-stat-records.json",
+      "complete": true
+    },
+    {
+      "id": "2019-20",
+      "label": "2019–20",
+      "file": "nicehl-2019-20-team-stat-records.json",
+      "complete": true
+    }
+  ]
+}
