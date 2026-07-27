@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "updated": "2026-07-26",
+  "description": "Maps historical NiceHL team names to continuing franchise identities. Regular-season source files remain unchanged.",
+  "franchises": [
+    {
+      "id": "alberta-cobra-chickens",
+      "currentName": "Alberta Cobra Chickens",
+      "aliases": [
+        {
+          "name": "Alberta Cobra Chickens",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "bowness-ice-beavers",
+      "currentName": "Bowness Ice Beavers",
+      "aliases": [
+        {
+          "name": "Bowness Ice Beavers",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "cachco-eagles",
+      "currentName": "Cachco Eagles",
+      "aliases": [
+        {
+          "name": "Cachco Eagles",
+          "fromSeason": "2019-20",
+          "toSeason": "2021-22"
+        }
+      ]
+    },
+    {
+      "id": "cantuar-slough-sharks",
+      "currentName": "Cantuar Slough Sharks",
+      "aliases": [
+        {
+          "name": "Cantuar Slough Sharks",
+          "fromSeason": "2022-23",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "driftless-hockey-club",
+      "currentName": "Driftless Hockey Club",
+      "aliases": [
+        {
+          "name": "Minnesota Frozen Pines",
+          "fromSeason": "2019-20",
+          "toSeason": "2022-23"
+        },
+        {
+          "name": "Driftless Hockey Club",
+          "fromSeason": "2023-24",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "les-rois-de-lyon",
+      "currentName": "Les Rois de Lyon",
+      "aliases": [
+        {
+          "name": "Les Rois de Lyon",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "maplewood-hc",
+      "currentName": "Maplewood HC",
+      "aliases": [
+        {
+          "name": "Last Mountain Walleye",
+          "fromSeason": "2019-20",
+          "toSeason": "2019-20"
+        },
+        {
+          "name": "Maplewood HC",
+          "fromSeason": "2020-21",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "mt-pearl-vikings",
+      "currentName": "Mt. Pearl Vikings",
+      "aliases": [
+        {
+          "name": "Mt. Pearl Vikings (Ed)",
+          "fromSeason": "2019-20",
+          "toSeason": "2020-21"
+        },
+        {
+          "name": "Mt. Pearl Vikings",
+          "fromSeason": "2021-22",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "pennant-pumpjacks",
+      "currentName": "Pennant Pumpjacks",
+      "aliases": [
+        {
+          "name": "Pennant Pumpjacks",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "potomac-poutine",
+      "currentName": "Potomac Poutine",
+      "aliases": [
+        {
+          "name": "Potomac Poutine",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "rockaway-brattwursts",
+      "currentName": "Rockaway Brattwursts",
+      "aliases": [
+        {
+          "name": "Rockaway Brattwursts",
+          "fromSeason": "2023-24",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "rotterdam-red-foxes",
+      "currentName": "Rotterdam Red Foxes",
+      "aliases": [
+        {
+          "name": "Rotterdam Red Foxes",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "scotty",
+      "currentName": "Scotty",
+      "aliases": [
+        {
+          "name": "Scotty",
+          "fromSeason": "2019-20",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "seminole-road-snakeheads",
+      "currentName": "Seminole Road Snakeheads",
+      "aliases": [
+        {
+          "name": "Seminole Road Snakeheads",
+          "fromSeason": "2019-20",
+          "toSeason": "2021-22"
+        }
+      ]
+    },
+    {
+      "id": "slick-city-jackals",
+      "currentName": "Slick City Jackals",
+      "aliases": [
+        {
+          "name": "Slick City Jackals",
+          "fromSeason": "2019-20",
+          "toSeason": "2021-22"
+        },
+        {
+          "name": "Slick City Jacky Cicks",
+          "fromSeason": "2022-23",
+          "toSeason": "2022-23"
+        },
+        {
+          "name": "Slick City Jackals",
+          "fromSeason": "2023-24",
+          "toSeason": "2024-25"
+        }
+      ]
+    },
+    {
+      "id": "southside-hellbats",
+      "currentName": "Southside Hellbats",
+      "aliases": [
+        {
+          "name": "Southside Hellbats",
+          "fromSeason": "2025-26",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "steel-valley-fishercats",
+      "currentName": "Steel Valley Fishercats",
+      "aliases": [
+        {
+          "name": "Steel Valley Fishers",
+          "fromSeason": "2019-20",
+          "toSeason": "2024-25"
+        },
+        {
+          "name": "Steel Valley Fishercats",
+          "fromSeason": "2025-26",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "synth-city-sphynx",
+      "currentName": "Synth City Sphynx",
+      "aliases": [
+        {
+          "name": "Synth City",
+          "fromSeason": "2019-20",
+          "toSeason": "2021-22"
+        },
+        {
+          "name": "Synth City Sphynx",
+          "fromSeason": "2022-23",
+          "toSeason": null
+        }
+      ]
+    },
+    {
+      "id": "woodland-whistle-pigs",
+      "currentName": "Woodland Whistle Pigs",
+      "aliases": [
+        {
+          "name": "Taku River Glaciers",
+          "fromSeason": "2019-20",
+          "toSeason": "2021-22"
+        },
+        {
+          "name": "Woodland Whistle Pigs",
+          "fromSeason": "2022-23",
+          "toSeason": null
+        }
+      ]
+    }
+  ]
+}
