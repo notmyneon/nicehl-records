@@ -626,23 +626,51 @@
       <div class="panel-header">
         <div>
           <span class="section-kicker">League Highs and Lows</span>
-          <h2>Regular-Season Records</h2>
+          <h2>Top 10 Regular-Season Records</h2>
           <p class="panel-note">
             Weekly records use every completed matchup. Single-season records use
-            seasons marked complete in <code>seasons.json</code>.
+            seasons marked complete in <code>seasons.json</code>. A franchise may
+            appear more than once.
           </p>
         </div>
+        <div class="control-group">
+          <label for="recordCategorySelect">Record</label>
+          <select id="recordCategorySelect">
+            <optgroup label="Weekly Records">
+              <option value="highestWeeklyScore">Highest Weekly Scores</option>
+              <option value="lowestWeeklyScore">Lowest Weekly Scores</option>
+              <option value="biggestWin">Biggest Wins</option>
+              <option value="closestWin">Closest Wins</option>
+              <option value="mostPointsInLoss">Most Points in a Loss</option>
+              <option value="leastPointsInWin">Least Points in a Win</option>
+            </optgroup>
+            <optgroup label="Single-Season Records">
+              <option value="mostSeasonWins">Most Wins in a Season</option>
+              <option value="bestSeasonPct">Best Season Win Percentage</option>
+              <option value="mostSeasonPoints">Most Points For in a Season</option>
+              <option value="bestSeasonAverage">Highest Season Scoring Average</option>
+              <option value="bestSeasonDifferential">Best Season Differential</option>
+            </optgroup>
+          </select>
+        </div>
       </div>
-      <div id="recordsGrid" class="records-grid"></div>
+      <div class="table-wrap">
+        <table id="recordsTable" style="min-width:900px">
+          <thead id="recordsHead"></thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
     </section>
 
     <section class="panel">
       <div class="panel-header">
         <div>
           <span class="section-kicker">Runs of Form</span>
-          <h2>Longest Streaks</h2>
+          <h2>Top 20 Longest Streaks</h2>
           <p class="panel-note">
-            Streaks continue across season boundaries when the franchise identity remains the same.
+            Every distinct winning and losing streak is ranked. A franchise may
+            appear multiple times, and streaks continue across season boundaries
+            when the franchise identity remains the same.
           </p>
         </div>
       </div>
@@ -1136,24 +1164,30 @@
 
         ["W", "L"].forEach(type => {
           let current = [];
-          let best = [];
+
+          const saveCurrent = () => {
+            if (!current.length) return;
+
+            rows.push({
+              franchiseId,
+              type,
+              length: current.length,
+              start: current[0],
+              end: current[current.length - 1]
+            });
+
+            current = [];
+          };
 
           ordered.forEach(game => {
             if (resultFor(game, franchiseId) === type) {
               current.push(game);
-              if (current.length > best.length) best = current.slice();
             } else {
-              current = [];
+              saveCurrent();
             }
           });
 
-          rows.push({
-            franchiseId,
-            type,
-            length: best.length,
-            start: best[0] || null,
-            end: best[best.length - 1] || null
-          });
+          saveCurrent();
         });
       });
 
@@ -1216,6 +1250,7 @@
         });
       });
 
+      document.getElementById("recordCategorySelect").addEventListener("change", renderRecords);
       document.getElementById("seasonSelect").addEventListener("change", renderSeasonStandings);
       document.getElementById("franchiseSelect").addEventListener("change", renderFranchiseHistory);
       document.getElementById("headToHeadA").addEventListener("change", renderHeadToHead);
@@ -1331,144 +1366,230 @@
     }
 
     function renderRecords() {
+      const category = document.getElementById("recordCategorySelect")?.value || "highestWeeklyScore";
       const sides = weeklySides();
       const completedSeasonIds = new Set(
         app.seasons
           .filter(({ entry }) => Boolean(entry.complete))
           .map(({ entry }) => String(entry.id))
       );
-      const completeSeasonStats = app.seasonStats.filter(item => completedSeasonIds.has(item.season));
-
-      const highestScore = maxBy(sides, item => item.score);
-      const lowestScore = minBy(sides, item => item.score);
-      const biggestWin = maxBy(
-        sides.filter(item => item.score > item.opponentScore),
-        item => item.score - item.opponentScore
-      );
-      const closestWin = minBy(
-        sides.filter(item => item.score > item.opponentScore),
-        item => item.score - item.opponentScore
-      );
-      const mostInLoss = maxBy(
-        sides.filter(item => item.score < item.opponentScore),
-        item => item.score
-      );
-      const leastInWin = minBy(
-        sides.filter(item => item.score > item.opponentScore),
-        item => item.score
+      const completeSeasonStats = app.seasonStats.filter(
+        item => completedSeasonIds.has(item.season)
       );
 
-      const mostSeasonWins = maxBy(completeSeasonStats, item => item.wins);
-      const bestSeasonPct = maxBy(completeSeasonStats, item => item.winPct);
-      const mostSeasonPoints = maxBy(completeSeasonStats, item => item.pointsFor);
-      const bestSeasonAverage = maxBy(completeSeasonStats, item => item.averageFor);
-      const bestSeasonDifferential = maxBy(completeSeasonStats, item => item.differential);
+      const weeklyDefinitions = {
+        highestWeeklyScore: {
+          label: "Score",
+          rows: sides.slice().sort((a, b) =>
+            b.score - a.score ||
+            b.opponentScore - a.opponentScore ||
+            compareWeeklyRecordDates(b, a)
+          ),
+          value: item => formatNumber(item.score),
+          result: item => weeklyResultText(item),
+          detail: item => `${item.season} · Week ${item.period}`
+        },
+        lowestWeeklyScore: {
+          label: "Score",
+          rows: sides.slice().sort((a, b) =>
+            a.score - b.score ||
+            a.opponentScore - b.opponentScore ||
+            compareWeeklyRecordDates(a, b)
+          ),
+          value: item => formatNumber(item.score),
+          result: item => weeklyResultText(item),
+          detail: item => `${item.season} · Week ${item.period}`
+        },
+        biggestWin: {
+          label: "Margin",
+          rows: sides
+            .filter(item => item.score > item.opponentScore)
+            .sort((a, b) =>
+              (b.score - b.opponentScore) - (a.score - a.opponentScore) ||
+              b.score - a.score ||
+              compareWeeklyRecordDates(b, a)
+            ),
+          value: item => `+${formatNumber(item.score - item.opponentScore)}`,
+          result: item => `${formatNumber(item.score)}–${formatNumber(item.opponentScore)} vs. ${item.opponentName}`,
+          detail: item => `${item.season} · Week ${item.period}`
+        },
+        closestWin: {
+          label: "Margin",
+          rows: sides
+            .filter(item => item.score > item.opponentScore)
+            .sort((a, b) =>
+              (a.score - a.opponentScore) - (b.score - b.opponentScore) ||
+              a.score - b.score ||
+              compareWeeklyRecordDates(a, b)
+            ),
+          value: item => `+${formatNumber(item.score - item.opponentScore)}`,
+          result: item => `${formatNumber(item.score)}–${formatNumber(item.opponentScore)} vs. ${item.opponentName}`,
+          detail: item => `${item.season} · Week ${item.period}`
+        },
+        mostPointsInLoss: {
+          label: "Score",
+          rows: sides
+            .filter(item => item.score < item.opponentScore)
+            .sort((a, b) =>
+              b.score - a.score ||
+              b.opponentScore - a.opponentScore ||
+              compareWeeklyRecordDates(b, a)
+            ),
+          value: item => formatNumber(item.score),
+          result: item => `Lost ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} to ${item.opponentName}`,
+          detail: item => `${item.season} · Week ${item.period}`
+        },
+        leastPointsInWin: {
+          label: "Score",
+          rows: sides
+            .filter(item => item.score > item.opponentScore)
+            .sort((a, b) =>
+              a.score - b.score ||
+              a.opponentScore - b.opponentScore ||
+              compareWeeklyRecordDates(a, b)
+            ),
+          value: item => formatNumber(item.score),
+          result: item => `Won ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} over ${item.opponentName}`,
+          detail: item => `${item.season} · Week ${item.period}`
+        }
+      };
 
-      const records = [
-        weeklyRecord(
-          "Highest Weekly Score",
-          highestScore,
-          item => formatNumber(item.score),
-          item => `Week ${item.period}, ${item.season} · beat ${item.opponentName} ${formatNumber(item.opponentScore)}`
-        ),
-        weeklyRecord(
-          "Lowest Weekly Score",
-          lowestScore,
-          item => formatNumber(item.score),
-          item => `Week ${item.period}, ${item.season} · vs. ${item.opponentName}`
-        ),
-        weeklyRecord(
-          "Biggest Win",
-          biggestWin,
-          item => `+${formatNumber(item.score - item.opponentScore)}`,
-          item => `Week ${item.period}, ${item.season} · ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`
-        ),
-        weeklyRecord(
-          "Closest Win",
-          closestWin,
-          item => `+${formatNumber(item.score - item.opponentScore)}`,
-          item => `Week ${item.period}, ${item.season} · ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`
-        ),
-        weeklyRecord(
-          "Most Points in a Loss",
-          mostInLoss,
-          item => formatNumber(item.score),
-          item => `Week ${item.period}, ${item.season} · lost to ${item.opponentName} ${formatNumber(item.opponentScore)}`
-        ),
-        weeklyRecord(
-          "Least Points in a Win",
-          leastInWin,
-          item => formatNumber(item.score),
-          item => `Week ${item.period}, ${item.season} · beat ${item.opponentName} ${formatNumber(item.opponentScore)}`
-        ),
-        seasonRecord(
-          "Most Wins in a Season",
-          mostSeasonWins,
-          item => String(item.wins),
-          item => `${item.season} · ${item.wins}-${item.losses}${item.ties ? `-${item.ties}` : ""}`
-        ),
-        seasonRecord(
-          "Best Season Win%",
-          bestSeasonPct,
-          item => formatPct(item.winPct),
-          item => `${item.season} · ${item.wins}-${item.losses}${item.ties ? `-${item.ties}` : ""}`
-        ),
-        seasonRecord(
-          "Most Points For in a Season",
-          mostSeasonPoints,
-          item => formatNumber(item.pointsFor),
-          item => `${item.season} · ${formatNumber(item.averageFor, 1)} per week`
-        ),
-        seasonRecord(
-          "Highest Season Average",
-          bestSeasonAverage,
-          item => formatNumber(item.averageFor, 1),
-          item => `${item.season} · ${formatNumber(item.pointsFor)} total points`
-        ),
-        seasonRecord(
-          "Best Season Differential",
-          bestSeasonDifferential,
-          item => formatSigned(item.differential),
-          item => `${item.season} · PF ${formatNumber(item.pointsFor)}, PA ${formatNumber(item.pointsAgainst)}`
-        )
-      ];
+      const seasonDefinitions = {
+        mostSeasonWins: {
+          label: "Wins",
+          rows: completeSeasonStats.slice().sort((a, b) =>
+            b.wins - a.wins ||
+            b.winPct - a.winPct ||
+            b.pointsFor - a.pointsFor ||
+            seasonNumber(b.season) - seasonNumber(a.season)
+          ),
+          value: item => String(item.wins)
+        },
+        bestSeasonPct: {
+          label: "Win%",
+          rows: completeSeasonStats.slice().sort((a, b) =>
+            b.winPct - a.winPct ||
+            b.wins - a.wins ||
+            b.pointsFor - a.pointsFor ||
+            seasonNumber(b.season) - seasonNumber(a.season)
+          ),
+          value: item => formatPct(item.winPct)
+        },
+        mostSeasonPoints: {
+          label: "Points For",
+          rows: completeSeasonStats.slice().sort((a, b) =>
+            b.pointsFor - a.pointsFor ||
+            b.averageFor - a.averageFor ||
+            seasonNumber(b.season) - seasonNumber(a.season)
+          ),
+          value: item => formatNumber(item.pointsFor)
+        },
+        bestSeasonAverage: {
+          label: "Average",
+          rows: completeSeasonStats.slice().sort((a, b) =>
+            b.averageFor - a.averageFor ||
+            b.pointsFor - a.pointsFor ||
+            seasonNumber(b.season) - seasonNumber(a.season)
+          ),
+          value: item => formatNumber(item.averageFor, 1)
+        },
+        bestSeasonDifferential: {
+          label: "Differential",
+          rows: completeSeasonStats.slice().sort((a, b) =>
+            b.differential - a.differential ||
+            b.winPct - a.winPct ||
+            seasonNumber(b.season) - seasonNumber(a.season)
+          ),
+          value: item => formatSigned(item.differential)
+        }
+      };
 
-      document.getElementById("recordsGrid").innerHTML = records.join("");
+      const weekly = weeklyDefinitions[category];
+      const season = seasonDefinitions[category];
+
+      if (weekly) {
+        renderWeeklyTopTen(weekly);
+      } else if (season) {
+        renderSeasonTopTen(season);
+      }
     }
 
-    function weeklyRecord(label, item, valueFunction, detailFunction) {
-      if (!item) return emptyRecord(label);
-      return recordCard(
-        label,
-        valueFunction(item),
-        franchiseName(item.franchiseId),
-        `${item.historicalName !== franchiseName(item.franchiseId) ? `${item.historicalName} · ` : ""}${detailFunction(item)}`
+    function compareWeeklyRecordDates(a, b) {
+      return (
+        seasonNumber(a.season) - seasonNumber(b.season) ||
+        a.period - b.period ||
+        String(a.historicalName).localeCompare(String(b.historicalName))
       );
     }
 
-    function seasonRecord(label, item, valueFunction, detailFunction) {
-      if (!item) return emptyRecord(label);
-      return recordCard(
-        label,
-        valueFunction(item),
-        item.name,
-        `${item.historicalName !== item.name ? `${item.historicalName} · ` : ""}${detailFunction(item)}`
-      );
+    function weeklyResultText(item) {
+      if (item.score > item.opponentScore) {
+        return `Won ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} over ${item.opponentName}`;
+      }
+      if (item.score < item.opponentScore) {
+        return `Lost ${formatNumber(item.score)}–${formatNumber(item.opponentScore)} to ${item.opponentName}`;
+      }
+      return `Tied ${item.opponentName} ${formatNumber(item.score)}–${formatNumber(item.opponentScore)}`;
     }
 
-    function recordCard(label, value, holder, detail) {
-      return `
-        <article class="record-card">
-          <span class="record-label">${escapeHtml(label)}</span>
-          <strong class="record-value">${escapeHtml(value)}</strong>
-          <span class="record-holder">${escapeHtml(holder)}</span>
-          <span class="record-detail">${escapeHtml(detail)}</span>
-        </article>
+    function renderWeeklyTopTen(definition) {
+      const rows = definition.rows.slice(0, 10);
+      document.getElementById("recordsHead").innerHTML = `
+        <tr>
+          <th>Rank</th>
+          <th class="team-column">Franchise</th>
+          <th class="team-column">Name Used</th>
+          <th>${escapeHtml(definition.label)}</th>
+          <th class="team-column">Result</th>
+          <th>Season / Week</th>
+        </tr>
       `;
+
+      document.getElementById("recordsBody").innerHTML = rows.length
+        ? rows.map((item, index) => `
+            <tr>
+              <td><span class="rank-number">${index + 1}</span></td>
+              <td class="team-column"><span class="team-name">${escapeHtml(franchiseName(item.franchiseId))}</span></td>
+              <td class="team-column">${escapeHtml(item.historicalName)}</td>
+              <td>${escapeHtml(definition.value(item))}</td>
+              <td class="team-column">${escapeHtml(definition.result(item))}</td>
+              <td>${escapeHtml(definition.detail(item))}</td>
+            </tr>
+          `).join("")
+        : `<tr><td colspan="6" class="empty">No qualifying weekly records are available.</td></tr>`;
     }
 
-    function emptyRecord(label) {
-      return recordCard(label, "—", "No qualifying result", "Waiting for completed season data");
+    function renderSeasonTopTen(definition) {
+      const rows = definition.rows.slice(0, 10);
+      document.getElementById("recordsHead").innerHTML = `
+        <tr>
+          <th>Rank</th>
+          <th class="team-column">Franchise</th>
+          <th class="team-column">Name Used</th>
+          <th>${escapeHtml(definition.label)}</th>
+          <th>Season</th>
+          <th>Record</th>
+          <th>PF</th>
+          <th>PA</th>
+          <th>Diff</th>
+        </tr>
+      `;
+
+      document.getElementById("recordsBody").innerHTML = rows.length
+        ? rows.map((item, index) => `
+            <tr>
+              <td><span class="rank-number">${index + 1}</span></td>
+              <td class="team-column"><span class="team-name">${escapeHtml(item.name)}</span></td>
+              <td class="team-column">${escapeHtml(item.historicalName)}</td>
+              <td>${escapeHtml(definition.value(item))}</td>
+              <td>${escapeHtml(item.season)}</td>
+              <td>${item.wins}-${item.losses}${item.ties ? `-${item.ties}` : ""}</td>
+              <td>${formatNumber(item.pointsFor)}</td>
+              <td>${formatNumber(item.pointsAgainst)}</td>
+              <td class="${numberClass(item.differential)}">${formatSigned(item.differential)}</td>
+            </tr>
+          `).join("")
+        : `<tr><td colspan="9" class="empty">No completed-season records are available.</td></tr>`;
     }
 
     function maxBy(items, valueFunction) {
@@ -1495,10 +1616,11 @@
         .filter(item => item.type === type && item.length > 0)
         .sort((a, b) =>
           b.length - a.length ||
-          seasonNumber(a.start?.season) - seasonNumber(b.start?.season) ||
-          a.start?.period - b.start?.period
+          seasonNumber(b.end?.season) - seasonNumber(a.end?.season) ||
+          (b.end?.period || 0) - (a.end?.period || 0) ||
+          franchiseName(a.franchiseId).localeCompare(franchiseName(b.franchiseId))
         )
-        .slice(0, 10);
+        .slice(0, 20);
 
       document.getElementById(elementId).innerHTML = rows.length
         ? rows.map((item, index) => `
@@ -1630,8 +1752,14 @@
         .sort((a, b) => seasonNumber(b.season) - seasonNumber(a.season));
 
       const names = aliasesForFranchise(franchiseId);
-      const longestWin = app.streaks.find(item => item.franchiseId === franchiseId && item.type === "W");
-      const longestLoss = app.streaks.find(item => item.franchiseId === franchiseId && item.type === "L");
+      const longestWin = maxBy(
+        app.streaks.filter(item => item.franchiseId === franchiseId && item.type === "W"),
+        item => item.length
+      );
+      const longestLoss = maxBy(
+        app.streaks.filter(item => item.franchiseId === franchiseId && item.type === "L"),
+        item => item.length
+      );
 
       document.getElementById("historySummary").innerHTML = allTime
         ? `
