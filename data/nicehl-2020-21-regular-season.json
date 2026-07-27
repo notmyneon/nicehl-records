@@ -1,0 +1,4663 @@
+{
+  "league": {
+    "leagueId": "x24l5hrykcl6g0k5",
+    "leagueHistoryId": "dh8whnfikbr76sso",
+    "name": "Nice Hockey League",
+    "season": "2020-21",
+    "seasonName": "2020-21 Reg Season",
+    "sport": "NHL",
+    "teamCount": 16,
+    "scoringPeriodCount": 13,
+    "complete": true
+  },
+  "teams": [
+    {
+      "fantraxTeamId": "9zrjzycmkcl6g0kg",
+      "name": "Alberta Cobra Chickens",
+      "shortName": "ACC",
+      "logoUrl": "https://fantraximg.com/logos/agy/tmLogo_agyf9dyxk19u0tor_512.jpg"
+    },
+    {
+      "fantraxTeamId": "s5qziu1wkcl6g0kr",
+      "name": "Bowness Ice Beavers",
+      "shortName": "BIB",
+      "logoUrl": "https://fantraximg.com/assets/images/icons/fantasyteams/hockey/stick_puck/brown_red_256.webp"
+    },
+    {
+      "fantraxTeamId": "tyhuo02xkcl6g0kx",
+      "name": "Cachco Eagles",
+      "shortName": "Cachco",
+      "logoUrl": "https://fantraximg.com/assets/images/icons/fantasyteams/hockey/skates/red_green_yellow_256.webp"
+    },
+    {
+      "fantraxTeamId": "aucv4b1okcl6g0km",
+      "name": "Les Rois de Lyon",
+      "shortName": "LYON",
+      "logoUrl": "https://fantraximg.com/logos/hwo/tmLogo_hwot1huvjz7xugqu_512.jpg"
+    },
+    {
+      "fantraxTeamId": "nwmkby0ykcl6g0kc",
+      "name": "Maplewood HC",
+      "shortName": "MHC",
+      "logoUrl": "https://fantraximg.com/logos/nx8/tmLogo_nx8f0hqbkn25aijk_512.jpg"
+    },
+    {
+      "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+      "name": "Minnesota Frozen Pines",
+      "shortName": "PINES",
+      "logoUrl": "https://fantraximg.com/logos/091/tmLogo_091hi87ijzx4r182_512.jpg"
+    },
+    {
+      "fantraxTeamId": "k97vyy6okcl6g0kv",
+      "name": "Mt. Pearl Vikings (Ed)",
+      "shortName": "MPV",
+      "logoUrl": "https://fantraximg.com/logos/yif/tmLogo_yifvrdkck2j78f05_512.jpg"
+    },
+    {
+      "fantraxTeamId": "mwnnbgsikcl6g0l0",
+      "name": "Pennant Pumpjacks",
+      "shortName": "PPJ",
+      "logoUrl": "https://fantraximg.com/logos/5wx/tmLogo_5wxvhf9tk1sojf3o_512.jpg"
+    },
+    {
+      "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+      "name": "Potomac Poutine",
+      "shortName": "POT",
+      "logoUrl": "https://fantraximg.com/logos/gd6/tmLogo_gd6hve9dk1a1r7si_512.jpg"
+    },
+    {
+      "fantraxTeamId": "uizq44wukcl6g0ke",
+      "name": "Rotterdam Red Foxes",
+      "shortName": "ROT",
+      "logoUrl": "https://fantraximg.com/logos/eq5/tmLogo_eq5mb1d3kgzmwrwj_512.jpg"
+    },
+    {
+      "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+      "name": "Scotty",
+      "shortName": "Metz17",
+      "logoUrl": "https://fantraximg.com/assets/images/icons/fantasyteams/hockey/jerseys/teal_white_black_256.webp"
+    },
+    {
+      "fantraxTeamId": "6mvxfd87kcl6g0ko",
+      "name": "Seminole Road Snakeheads",
+      "shortName": "SRS",
+      "logoUrl": "https://fantraximg.com/logos/5l8/tmLogo_5l8jmmwtjzf3c3gd_512.jpg"
+    },
+    {
+      "fantraxTeamId": "oe2h93jtkcl6g0kz",
+      "name": "Slick City Jackals",
+      "shortName": "SC Jax",
+      "logoUrl": "https://fantraximg.com/logos/g1x/tmLogo_g1xgym0cjyrlbqc0_512.jpg"
+    },
+    {
+      "fantraxTeamId": "h1b90jyfkcl6g0kq",
+      "name": "Steel Valley Fishers",
+      "shortName": "Fishers",
+      "logoUrl": "https://fantraximg.com/logos/4jn/tmLogo_4jn67l4ykn6tvtgw_512.jpg"
+    },
+    {
+      "fantraxTeamId": "apqgyip8kcl6g0ka",
+      "name": "Synth City",
+      "shortName": "SYN",
+      "logoUrl": "https://fantraximg.com/logos/dwy/tmLogo_dwyuwj31jy1d1hlm_512.jpg"
+    },
+    {
+      "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+      "name": "Taku River Glaciers",
+      "shortName": "TRG",
+      "logoUrl": "https://fantraximg.com/logos/1si/tmLogo_1sizbjm6kgst21kt_512.jpg"
+    }
+  ],
+  "weeks": [
+    {
+      "scoringPeriod": 1,
+      "dateRange": "(Wed Jan 13, 2021 - Sun Jan 17, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 130.0,
+            "adjustment": 0.0,
+            "score": 130.0
+          },
+          "home": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 99.0,
+            "adjustment": 0.0,
+            "score": 99.0
+          },
+          "winner": "away",
+          "margin": 31.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 126.0,
+            "adjustment": 0.0,
+            "score": 126.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 151.0,
+            "adjustment": 0.0,
+            "score": 151.0
+          },
+          "winner": "home",
+          "margin": 25.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 137.0,
+            "adjustment": 0.0,
+            "score": 137.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 84.0,
+            "adjustment": 0.0,
+            "score": 84.0
+          },
+          "winner": "away",
+          "margin": 53.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 76.0,
+            "adjustment": 0.0,
+            "score": 76.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 145.0,
+            "adjustment": 0.0,
+            "score": 145.0
+          },
+          "winner": "home",
+          "margin": 69.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 168.0,
+            "adjustment": 0.0,
+            "score": 168.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 120.0,
+            "adjustment": 0.0,
+            "score": 120.0
+          },
+          "winner": "away",
+          "margin": 48.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 67.0,
+            "adjustment": 0.0,
+            "score": 67.0
+          },
+          "home": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 121.0,
+            "adjustment": 0.0,
+            "score": 121.0
+          },
+          "winner": "home",
+          "margin": 54.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 97.0,
+            "adjustment": 0.0,
+            "score": 97.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 99.0,
+            "adjustment": 0.0,
+            "score": 99.0
+          },
+          "winner": "home",
+          "margin": 2.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 120.0,
+            "adjustment": 0.0,
+            "score": 120.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 108.0,
+            "adjustment": 0.0,
+            "score": 108.0
+          },
+          "winner": "away",
+          "margin": 12.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Potomac Poutine",
+          "score": 168.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Minnesota Frozen Pines",
+          "score": 67.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Slick City Jackals",
+          "score": 126.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Mt. Pearl Vikings (Ed)",
+          "score": 99.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 168.0,
+          "pointsAgainst": 120.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 151.0,
+          "pointsAgainst": 126.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 145.0,
+          "pointsAgainst": 76.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 137.0,
+          "pointsAgainst": 84.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 130.0,
+          "pointsAgainst": 99.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 121.0,
+          "pointsAgainst": 67.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 120.0,
+          "pointsAgainst": 108.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 1,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 99.0,
+          "pointsAgainst": 97.0,
+          "games": 1,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 126.0,
+          "pointsAgainst": 151.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 120.0,
+          "pointsAgainst": 168.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 108.0,
+          "pointsAgainst": 120.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 99.0,
+          "pointsAgainst": 130.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 97.0,
+          "pointsAgainst": 99.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 84.0,
+          "pointsAgainst": 137.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 76.0,
+          "pointsAgainst": 145.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 0,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 67.0,
+          "pointsAgainst": 121.0,
+          "games": 1,
+          "winningPercentage": 0.0
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 2,
+      "dateRange": "(Mon Jan 18, 2021 - Sun Jan 24, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 212.0,
+            "adjustment": 0.0,
+            "score": 212.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 155.0,
+            "adjustment": 0.0,
+            "score": 155.0
+          },
+          "winner": "away",
+          "margin": 57.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 233.0,
+            "adjustment": 0.0,
+            "score": 233.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 209.0,
+            "adjustment": 0.0,
+            "score": 209.0
+          },
+          "winner": "away",
+          "margin": 24.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 233.0,
+            "adjustment": 0.0,
+            "score": 233.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 151.0,
+            "adjustment": 0.0,
+            "score": 151.0
+          },
+          "winner": "away",
+          "margin": 82.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 162.0,
+            "adjustment": 0.0,
+            "score": 162.0
+          },
+          "home": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 164.0,
+            "adjustment": 0.0,
+            "score": 164.0
+          },
+          "winner": "home",
+          "margin": 2.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 145.0,
+            "adjustment": 0.0,
+            "score": 145.0
+          },
+          "home": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 214.0,
+            "adjustment": 0.0,
+            "score": 214.0
+          },
+          "winner": "home",
+          "margin": 69.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 168.0,
+            "adjustment": 0.0,
+            "score": 168.0
+          },
+          "home": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 119.0,
+            "adjustment": 0.0,
+            "score": 119.0
+          },
+          "winner": "away",
+          "margin": 49.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 179.0,
+            "adjustment": 0.0,
+            "score": 179.0
+          },
+          "home": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 145.0,
+            "adjustment": 0.0,
+            "score": 145.0
+          },
+          "winner": "away",
+          "margin": 34.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 146.0,
+            "adjustment": 0.0,
+            "score": 146.0
+          },
+          "home": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 173.0,
+            "adjustment": 0.0,
+            "score": 173.0
+          },
+          "winner": "home",
+          "margin": 27.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Rotterdam Red Foxes",
+          "score": 233.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Seminole Road Snakeheads",
+          "score": 119.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Bowness Ice Beavers",
+          "score": 209.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Minnesota Frozen Pines",
+          "score": 164.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 2,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 384.0,
+          "pointsAgainst": 335.0,
+          "games": 2,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 2,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 335.0,
+          "pointsAgainst": 212.0,
+          "games": 2,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 2,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 313.0,
+          "pointsAgainst": 195.0,
+          "games": 2,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 323.0,
+          "pointsAgainst": 332.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 317.0,
+          "pointsAgainst": 288.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 311.0,
+          "pointsAgainst": 285.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 305.0,
+          "pointsAgainst": 296.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 275.0,
+          "pointsAgainst": 278.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 270.0,
+          "pointsAgainst": 245.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 266.0,
+          "pointsAgainst": 281.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 256.0,
+          "pointsAgainst": 252.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 250.0,
+          "pointsAgainst": 330.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 1,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 231.0,
+          "pointsAgainst": 283.0,
+          "games": 2,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 0,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 329.0,
+          "pointsAgainst": 401.0,
+          "games": 2,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 0,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 270.0,
+          "pointsAgainst": 284.0,
+          "games": 2,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 0,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 221.0,
+          "pointsAgainst": 359.0,
+          "games": 2,
+          "winningPercentage": 0.0
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 3,
+      "dateRange": "(Mon Jan 25, 2021 - Sun Jan 31, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 163.0,
+            "adjustment": 0.0,
+            "score": 163.0
+          },
+          "home": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 174.0,
+            "adjustment": 0.0,
+            "score": 174.0
+          },
+          "winner": "home",
+          "margin": 11.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 136.0,
+            "adjustment": 0.0,
+            "score": 136.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 200.0,
+            "adjustment": 0.0,
+            "score": 200.0
+          },
+          "winner": "home",
+          "margin": 64.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 128.0,
+            "adjustment": 0.0,
+            "score": 128.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 158.0,
+            "adjustment": 0.0,
+            "score": 158.0
+          },
+          "winner": "home",
+          "margin": 30.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 193.0,
+            "adjustment": 0.0,
+            "score": 193.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 111.0,
+            "adjustment": 0.0,
+            "score": 111.0
+          },
+          "winner": "away",
+          "margin": 82.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 187.0,
+            "adjustment": 0.0,
+            "score": 187.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 138.0,
+            "adjustment": 0.0,
+            "score": 138.0
+          },
+          "winner": "away",
+          "margin": 49.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 141.0,
+            "adjustment": 0.0,
+            "score": 141.0
+          },
+          "home": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 148.0,
+            "adjustment": 0.0,
+            "score": 148.0
+          },
+          "winner": "home",
+          "margin": 7.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 165.0,
+            "adjustment": 0.0,
+            "score": 165.0
+          },
+          "home": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 137.0,
+            "adjustment": 0.0,
+            "score": 137.0
+          },
+          "winner": "away",
+          "margin": 28.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 161.0,
+            "adjustment": 0.0,
+            "score": 161.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 143.0,
+            "adjustment": 0.0,
+            "score": 143.0
+          },
+          "winner": "away",
+          "margin": 18.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Rotterdam Red Foxes",
+          "score": 200.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Potomac Poutine",
+          "score": 111.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Mt. Pearl Vikings (Ed)",
+          "score": 163.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Pennant Pumpjacks",
+          "score": 148.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 3,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 584.0,
+          "pointsAgainst": 471.0,
+          "games": 3,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 3,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 528.0,
+          "pointsAgainst": 323.0,
+          "games": 3,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 485.0,
+          "pointsAgainst": 448.0,
+          "games": 3,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 466.0,
+          "pointsAgainst": 439.0,
+          "games": 3,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 457.0,
+          "pointsAgainst": 383.0,
+          "games": 3,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 449.0,
+          "pointsAgainst": 395.0,
+          "games": 3,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 440.0,
+          "pointsAgainst": 415.0,
+          "games": 3,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 414.0,
+          "pointsAgainst": 422.0,
+          "games": 3,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 1,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 487.0,
+          "pointsAgainst": 529.0,
+          "games": 3,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 1,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 460.0,
+          "pointsAgainst": 449.0,
+          "games": 3,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 434.0,
+          "pointsAgainst": 525.0,
+          "games": 3,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 1,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 413.0,
+          "pointsAgainst": 504.0,
+          "games": 3,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 1,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 393.0,
+          "pointsAgainst": 417.0,
+          "games": 3,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 1,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 359.0,
+          "pointsAgainst": 441.0,
+          "games": 3,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 0,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 408.0,
+          "pointsAgainst": 471.0,
+          "games": 3,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 0,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 362.0,
+          "pointsAgainst": 507.0,
+          "games": 3,
+          "winningPercentage": 0.0
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 4,
+      "dateRange": "(Mon Feb 1, 2021 - Sun Feb 7, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 161.0,
+            "adjustment": 0.0,
+            "score": 161.0
+          },
+          "home": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 146.0,
+            "adjustment": 0.0,
+            "score": 146.0
+          },
+          "winner": "away",
+          "margin": 15.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 154.0,
+            "adjustment": 0.0,
+            "score": 154.0
+          },
+          "home": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 144.0,
+            "adjustment": 0.0,
+            "score": 144.0
+          },
+          "winner": "away",
+          "margin": 10.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 149.0,
+            "adjustment": 0.0,
+            "score": 149.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 125.0,
+            "adjustment": 0.0,
+            "score": 125.0
+          },
+          "winner": "away",
+          "margin": 24.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 128.0,
+            "adjustment": 0.0,
+            "score": 128.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 124.0,
+            "adjustment": 0.0,
+            "score": 124.0
+          },
+          "winner": "away",
+          "margin": 4.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 146.0,
+            "adjustment": 0.0,
+            "score": 146.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 158.0,
+            "adjustment": 0.0,
+            "score": 158.0
+          },
+          "winner": "home",
+          "margin": 12.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 120.0,
+            "adjustment": 0.0,
+            "score": 120.0
+          },
+          "home": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 113.0,
+            "adjustment": 0.0,
+            "score": 113.0
+          },
+          "winner": "away",
+          "margin": 7.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 160.0,
+            "adjustment": 0.0,
+            "score": 160.0
+          },
+          "home": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 157.0,
+            "adjustment": 0.0,
+            "score": 157.0
+          },
+          "winner": "away",
+          "margin": 3.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 98.0,
+            "adjustment": 0.0,
+            "score": 98.0
+          },
+          "home": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 133.0,
+            "adjustment": 0.0,
+            "score": 133.0
+          },
+          "winner": "home",
+          "margin": 35.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Steel Valley Fishers",
+          "score": 161.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Maplewood HC",
+          "score": 98.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Pennant Pumpjacks",
+          "score": 157.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Slick City Jackals",
+          "score": 120.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 4,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 738.0,
+          "pointsAgainst": 615.0,
+          "games": 4,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 4,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 661.0,
+          "pointsAgainst": 421.0,
+          "games": 4,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 646.0,
+          "pointsAgainst": 594.0,
+          "games": 4,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 600.0,
+          "pointsAgainst": 572.0,
+          "games": 4,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 586.0,
+          "pointsAgainst": 552.0,
+          "games": 4,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 3,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 577.0,
+          "pointsAgainst": 519.0,
+          "games": 4,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 2,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 645.0,
+          "pointsAgainst": 675.0,
+          "games": 4,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 2,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 609.0,
+          "pointsAgainst": 574.0,
+          "games": 4,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 2,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 571.0,
+          "pointsAgainst": 582.0,
+          "games": 4,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 2,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 555.0,
+          "pointsAgainst": 516.0,
+          "games": 4,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 1,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 559.0,
+          "pointsAgainst": 662.0,
+          "games": 4,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 558.0,
+          "pointsAgainst": 653.0,
+          "games": 4,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 1,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 539.0,
+          "pointsAgainst": 578.0,
+          "games": 4,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 1,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 472.0,
+          "pointsAgainst": 561.0,
+          "games": 4,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 0,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 533.0,
+          "pointsAgainst": 620.0,
+          "games": 4,
+          "winningPercentage": 0.0
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 0,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 506.0,
+          "pointsAgainst": 661.0,
+          "games": 4,
+          "winningPercentage": 0.0
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 5,
+      "dateRange": "(Mon Feb 8, 2021 - Sun Feb 14, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 160.0,
+            "adjustment": 0.0,
+            "score": 160.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 113.0,
+            "adjustment": 0.0,
+            "score": 113.0
+          },
+          "winner": "away",
+          "margin": 47.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 111.0,
+            "adjustment": 0.0,
+            "score": 111.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 155.0,
+            "adjustment": 0.0,
+            "score": 155.0
+          },
+          "winner": "home",
+          "margin": 44.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 147.0,
+            "adjustment": 0.0,
+            "score": 147.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 106.0,
+            "adjustment": 0.0,
+            "score": 106.0
+          },
+          "winner": "away",
+          "margin": 41.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 204.0,
+            "adjustment": 0.0,
+            "score": 204.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 157.0,
+            "adjustment": 0.0,
+            "score": 157.0
+          },
+          "winner": "away",
+          "margin": 47.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 129.0,
+            "adjustment": 0.0,
+            "score": 129.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 133.0,
+            "adjustment": 0.0,
+            "score": 133.0
+          },
+          "winner": "home",
+          "margin": 4.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 170.0,
+            "adjustment": 0.0,
+            "score": 170.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 59.0,
+            "adjustment": 0.0,
+            "score": 59.0
+          },
+          "winner": "away",
+          "margin": 111.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 150.0,
+            "adjustment": 0.0,
+            "score": 150.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 87.0,
+            "adjustment": 0.0,
+            "score": 87.0
+          },
+          "winner": "away",
+          "margin": 63.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 101.0,
+            "adjustment": 0.0,
+            "score": 101.0
+          },
+          "home": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 66.0,
+            "adjustment": 0.0,
+            "score": 66.0
+          },
+          "winner": "away",
+          "margin": 35.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Cachco Eagles",
+          "score": 204.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Potomac Poutine",
+          "score": 59.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Mt. Pearl Vikings (Ed)",
+          "score": 157.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Minnesota Frozen Pines",
+          "score": 101.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 5,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 893.0,
+          "pointsAgainst": 726.0,
+          "games": 5,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 5,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 808.0,
+          "pointsAgainst": 527.0,
+          "games": 5,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 4,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 806.0,
+          "pointsAgainst": 707.0,
+          "games": 5,
+          "winningPercentage": 0.8
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 4,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 804.0,
+          "pointsAgainst": 729.0,
+          "games": 5,
+          "winningPercentage": 0.8
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 4,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 736.0,
+          "pointsAgainst": 639.0,
+          "games": 5,
+          "winningPercentage": 0.8
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 3,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 778.0,
+          "pointsAgainst": 804.0,
+          "games": 5,
+          "winningPercentage": 0.6
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 3,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 683.0,
+          "pointsAgainst": 666.0,
+          "games": 5,
+          "winningPercentage": 0.6
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 2,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 722.0,
+          "pointsAgainst": 734.0,
+          "games": 5,
+          "winningPercentage": 0.4
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 2,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 700.0,
+          "pointsAgainst": 715.0,
+          "games": 5,
+          "winningPercentage": 0.4
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 2,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 666.0,
+          "pointsAgainst": 671.0,
+          "games": 5,
+          "winningPercentage": 0.4
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 2,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 573.0,
+          "pointsAgainst": 627.0,
+          "games": 5,
+          "winningPercentage": 0.4
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 1,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 716.0,
+          "pointsAgainst": 866.0,
+          "games": 5,
+          "winningPercentage": 0.2
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 1,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 676.0,
+          "pointsAgainst": 720.0,
+          "games": 5,
+          "winningPercentage": 0.2
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 617.0,
+          "pointsAgainst": 823.0,
+          "games": 5,
+          "winningPercentage": 0.2
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 1,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 605.0,
+          "pointsAgainst": 679.0,
+          "games": 5,
+          "winningPercentage": 0.2
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 0,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 620.0,
+          "pointsAgainst": 770.0,
+          "games": 5,
+          "winningPercentage": 0.0
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 6,
+      "dateRange": "(Mon Feb 15, 2021 - Sun Feb 21, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 132.0,
+            "adjustment": 0.0,
+            "score": 132.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 170.0,
+            "adjustment": 0.0,
+            "score": 170.0
+          },
+          "winner": "home",
+          "margin": 38.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 227.0,
+            "adjustment": 0.0,
+            "score": 227.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 147.0,
+            "adjustment": 0.0,
+            "score": 147.0
+          },
+          "winner": "away",
+          "margin": 80.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 140.0,
+            "adjustment": 0.0,
+            "score": 140.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 95.0,
+            "adjustment": 0.0,
+            "score": 95.0
+          },
+          "winner": "away",
+          "margin": 45.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 100.0,
+            "adjustment": 0.0,
+            "score": 100.0
+          },
+          "home": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 133.0,
+            "adjustment": 0.0,
+            "score": 133.0
+          },
+          "winner": "home",
+          "margin": 33.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 185.0,
+            "adjustment": 0.0,
+            "score": 185.0
+          },
+          "home": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 153.0,
+            "adjustment": 0.0,
+            "score": 153.0
+          },
+          "winner": "away",
+          "margin": 32.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 138.0,
+            "adjustment": 0.0,
+            "score": 138.0
+          },
+          "home": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 198.0,
+            "adjustment": 0.0,
+            "score": 198.0
+          },
+          "winner": "home",
+          "margin": 60.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 210.0,
+            "adjustment": 0.0,
+            "score": 210.0
+          },
+          "home": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 153.0,
+            "adjustment": 0.0,
+            "score": 153.0
+          },
+          "winner": "away",
+          "margin": 57.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 110.0,
+            "adjustment": 0.0,
+            "score": 110.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 169.0,
+            "adjustment": 0.0,
+            "score": 169.0
+          },
+          "winner": "home",
+          "margin": 59.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Rotterdam Red Foxes",
+          "score": 227.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Taku River Glaciers",
+          "score": 95.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Alberta Cobra Chickens",
+          "score": 153.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Minnesota Frozen Pines",
+          "score": 133.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 6,
+          "losses": 0,
+          "ties": 0,
+          "pointsFor": 1120.0,
+          "pointsAgainst": 873.0,
+          "games": 6,
+          "winningPercentage": 1.0
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 5,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1002.0,
+          "pointsAgainst": 867.0,
+          "games": 6,
+          "winningPercentage": 0.8333333333333334
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 5,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 961.0,
+          "pointsAgainst": 712.0,
+          "games": 6,
+          "winningPercentage": 0.8333333333333334
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 5,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 905.0,
+          "pointsAgainst": 749.0,
+          "games": 6,
+          "winningPercentage": 0.8333333333333334
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 4,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 948.0,
+          "pointsAgainst": 936.0,
+          "games": 6,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 4,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 938.0,
+          "pointsAgainst": 877.0,
+          "games": 6,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 3,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 862.0,
+          "pointsAgainst": 829.0,
+          "games": 6,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 3,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 778.0,
+          "pointsAgainst": 806.0,
+          "games": 6,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 706.0,
+          "pointsAgainst": 727.0,
+          "games": 6,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 2,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 853.0,
+          "pointsAgainst": 925.0,
+          "games": 6,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 815.0,
+          "pointsAgainst": 832.0,
+          "games": 6,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 2,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 776.0,
+          "pointsAgainst": 840.0,
+          "games": 6,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 1,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 863.0,
+          "pointsAgainst": 1093.0,
+          "games": 6,
+          "winningPercentage": 0.16666666666666666
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 1,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 814.0,
+          "pointsAgainst": 918.0,
+          "games": 6,
+          "winningPercentage": 0.16666666666666666
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 1,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 805.0,
+          "pointsAgainst": 923.0,
+          "games": 6,
+          "winningPercentage": 0.16666666666666666
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 717.0,
+          "pointsAgainst": 956.0,
+          "games": 6,
+          "winningPercentage": 0.16666666666666666
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 7,
+      "dateRange": "(Mon Feb 22, 2021 - Sun Feb 28, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 200.0,
+            "adjustment": 1.0,
+            "score": 201.0
+          },
+          "home": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 200.0,
+            "adjustment": 0.0,
+            "score": 200.0
+          },
+          "winner": "away",
+          "margin": 1.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 180.0,
+            "adjustment": 0.0,
+            "score": 180.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 106.0,
+            "adjustment": 0.0,
+            "score": 106.0
+          },
+          "winner": "away",
+          "margin": 74.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 148.0,
+            "adjustment": 0.0,
+            "score": 148.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 174.0,
+            "adjustment": 0.0,
+            "score": 174.0
+          },
+          "winner": "home",
+          "margin": 26.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 178.0,
+            "adjustment": 0.0,
+            "score": 178.0
+          },
+          "home": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 159.0,
+            "adjustment": 0.0,
+            "score": 159.0
+          },
+          "winner": "away",
+          "margin": 19.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 172.0,
+            "adjustment": 0.0,
+            "score": 172.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 180.0,
+            "adjustment": 0.0,
+            "score": 180.0
+          },
+          "winner": "home",
+          "margin": 8.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 122.0,
+            "adjustment": 0.0,
+            "score": 122.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 161.0,
+            "adjustment": 0.0,
+            "score": 161.0
+          },
+          "winner": "home",
+          "margin": 39.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 150.0,
+            "adjustment": 0.0,
+            "score": 150.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 131.0,
+            "adjustment": 0.0,
+            "score": 131.0
+          },
+          "winner": "away",
+          "margin": 19.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 151.0,
+            "adjustment": 0.0,
+            "score": 151.0
+          },
+          "home": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 125.0,
+            "adjustment": 0.0,
+            "score": 125.0
+          },
+          "winner": "away",
+          "margin": 26.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Pennant Pumpjacks",
+          "score": 201.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Rotterdam Red Foxes",
+          "score": 106.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Steel Valley Fishers",
+          "score": 200.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Slick City Jackals",
+          "score": 150.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 6,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1226.0,
+          "pointsAgainst": 1053.0,
+          "games": 7,
+          "winningPercentage": 0.8571428571428571
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 6,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1182.0,
+          "pointsAgainst": 973.0,
+          "games": 7,
+          "winningPercentage": 0.8571428571428571
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 6,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1055.0,
+          "pointsAgainst": 880.0,
+          "games": 7,
+          "winningPercentage": 0.8571428571428571
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 5,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1083.0,
+          "pointsAgainst": 873.0,
+          "games": 7,
+          "winningPercentage": 0.7142857142857143
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1138.0,
+          "pointsAgainst": 1078.0,
+          "games": 7,
+          "winningPercentage": 0.5714285714285714
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1107.0,
+          "pointsAgainst": 1114.0,
+          "games": 7,
+          "winningPercentage": 0.5714285714285714
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1023.0,
+          "pointsAgainst": 951.0,
+          "games": 7,
+          "winningPercentage": 0.5714285714285714
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 958.0,
+          "pointsAgainst": 978.0,
+          "games": 7,
+          "winningPercentage": 0.5714285714285714
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 3,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1054.0,
+          "pointsAgainst": 1125.0,
+          "games": 7,
+          "winningPercentage": 0.42857142857142855
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 927.0,
+          "pointsAgainst": 965.0,
+          "games": 7,
+          "winningPercentage": 0.42857142857142855
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 878.0,
+          "pointsAgainst": 907.0,
+          "games": 7,
+          "winningPercentage": 0.42857142857142855
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 2,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1037.0,
+          "pointsAgainst": 1241.0,
+          "games": 7,
+          "winningPercentage": 0.2857142857142857
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 2,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 983.0,
+          "pointsAgainst": 1082.0,
+          "games": 7,
+          "winningPercentage": 0.2857142857142857
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 940.0,
+          "pointsAgainst": 983.0,
+          "games": 7,
+          "winningPercentage": 0.2857142857142857
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 1,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 962.0,
+          "pointsAgainst": 1092.0,
+          "games": 7,
+          "winningPercentage": 0.14285714285714285
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 848.0,
+          "pointsAgainst": 1106.0,
+          "games": 7,
+          "winningPercentage": 0.14285714285714285
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 8,
+      "dateRange": "(Mon Mar 1, 2021 - Sun Mar 7, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 220.0,
+            "adjustment": 0.0,
+            "score": 220.0
+          },
+          "home": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 191.0,
+            "adjustment": 0.0,
+            "score": 191.0
+          },
+          "winner": "away",
+          "margin": 29.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 196.0,
+            "adjustment": 0.0,
+            "score": 196.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 172.0,
+            "adjustment": 0.0,
+            "score": 172.0
+          },
+          "winner": "away",
+          "margin": 24.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 125.0,
+            "adjustment": 0.0,
+            "score": 125.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 161.0,
+            "adjustment": 0.0,
+            "score": 161.0
+          },
+          "winner": "home",
+          "margin": 36.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 190.0,
+            "adjustment": 0.0,
+            "score": 190.0
+          },
+          "home": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 191.0,
+            "adjustment": 0.0,
+            "score": 191.0
+          },
+          "winner": "home",
+          "margin": 1.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 293.0,
+            "adjustment": 0.0,
+            "score": 293.0
+          },
+          "home": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 183.0,
+            "adjustment": 0.0,
+            "score": 183.0
+          },
+          "winner": "away",
+          "margin": 110.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 221.0,
+            "adjustment": 0.0,
+            "score": 221.0
+          },
+          "home": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 177.0,
+            "adjustment": 0.0,
+            "score": 177.0
+          },
+          "winner": "away",
+          "margin": 44.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 235.0,
+            "adjustment": 0.0,
+            "score": 235.0
+          },
+          "home": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 174.0,
+            "adjustment": 0.0,
+            "score": 174.0
+          },
+          "winner": "away",
+          "margin": 61.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 165.0,
+            "adjustment": 0.0,
+            "score": 165.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 162.0,
+            "adjustment": 0.0,
+            "score": 162.0
+          },
+          "winner": "away",
+          "margin": 3.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Taku River Glaciers",
+          "score": 293.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Potomac Poutine",
+          "score": 125.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Scotty",
+          "score": 191.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Synth City",
+          "score": 161.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 7,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1422.0,
+          "pointsAgainst": 1225.0,
+          "games": 8,
+          "winningPercentage": 0.875
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 6,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1356.0,
+          "pointsAgainst": 1208.0,
+          "games": 8,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 6,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1274.0,
+          "pointsAgainst": 1063.0,
+          "games": 8,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 6,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1217.0,
+          "pointsAgainst": 1045.0,
+          "games": 8,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 5,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1358.0,
+          "pointsAgainst": 1269.0,
+          "games": 8,
+          "winningPercentage": 0.625
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 5,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1342.0,
+          "pointsAgainst": 1288.0,
+          "games": 8,
+          "winningPercentage": 0.625
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 5,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1251.0,
+          "pointsAgainst": 1161.0,
+          "games": 8,
+          "winningPercentage": 0.625
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 5,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1184.0,
+          "pointsAgainst": 1076.0,
+          "games": 8,
+          "winningPercentage": 0.625
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 4,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1219.0,
+          "pointsAgainst": 1287.0,
+          "games": 8,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 3,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1258.0,
+          "pointsAgainst": 1418.0,
+          "games": 8,
+          "winningPercentage": 0.375
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1110.0,
+          "pointsAgainst": 1258.0,
+          "games": 8,
+          "winningPercentage": 0.375
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1055.0,
+          "pointsAgainst": 1128.0,
+          "games": 8,
+          "winningPercentage": 0.375
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 2,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1155.0,
+          "pointsAgainst": 1278.0,
+          "games": 8,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1130.0,
+          "pointsAgainst": 1174.0,
+          "games": 8,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 1,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1153.0,
+          "pointsAgainst": 1312.0,
+          "games": 8,
+          "winningPercentage": 0.125
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 973.0,
+          "pointsAgainst": 1267.0,
+          "games": 8,
+          "winningPercentage": 0.125
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 9,
+      "dateRange": "(Mon Mar 8, 2021 - Sun Mar 14, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 178.0,
+            "adjustment": 0.0,
+            "score": 178.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 176.0,
+            "adjustment": 0.0,
+            "score": 176.0
+          },
+          "winner": "away",
+          "margin": 2.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 137.0,
+            "adjustment": 0.0,
+            "score": 137.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 208.0,
+            "adjustment": 0.0,
+            "score": 208.0
+          },
+          "winner": "home",
+          "margin": 71.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 170.0,
+            "adjustment": 0.0,
+            "score": 170.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 184.0,
+            "adjustment": 0.0,
+            "score": 184.0
+          },
+          "winner": "home",
+          "margin": 14.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 192.0,
+            "adjustment": 0.0,
+            "score": 192.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 146.0,
+            "adjustment": 0.0,
+            "score": 146.0
+          },
+          "winner": "away",
+          "margin": 46.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 180.0,
+            "adjustment": 0.0,
+            "score": 180.0
+          },
+          "home": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 167.0,
+            "adjustment": 0.0,
+            "score": 167.0
+          },
+          "winner": "away",
+          "margin": 13.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 216.0,
+            "adjustment": 0.0,
+            "score": 216.0
+          },
+          "home": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 170.0,
+            "adjustment": 0.0,
+            "score": 170.0
+          },
+          "winner": "away",
+          "margin": 46.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 164.0,
+            "adjustment": 0.0,
+            "score": 164.0
+          },
+          "home": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 124.0,
+            "adjustment": 0.0,
+            "score": 124.0
+          },
+          "winner": "away",
+          "margin": 40.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 193.0,
+            "adjustment": 0.0,
+            "score": 193.0
+          },
+          "home": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 126.0,
+            "adjustment": 0.0,
+            "score": 126.0
+          },
+          "winner": "away",
+          "margin": 67.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Alberta Cobra Chickens",
+          "score": 216.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Maplewood HC",
+          "score": 124.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Slick City Jackals",
+          "score": 176.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Synth City",
+          "score": 164.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 8,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1630.0,
+          "pointsAgainst": 1362.0,
+          "games": 9,
+          "winningPercentage": 0.8888888888888888
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 7,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1536.0,
+          "pointsAgainst": 1375.0,
+          "games": 9,
+          "winningPercentage": 0.7777777777777778
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 7,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1490.0,
+          "pointsAgainst": 1233.0,
+          "games": 9,
+          "winningPercentage": 0.7777777777777778
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 6,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1536.0,
+          "pointsAgainst": 1445.0,
+          "games": 9,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 6,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1535.0,
+          "pointsAgainst": 1414.0,
+          "games": 9,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 6,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1435.0,
+          "pointsAgainst": 1331.0,
+          "games": 9,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 6,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1393.0,
+          "pointsAgainst": 1223.0,
+          "games": 9,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 6,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1348.0,
+          "pointsAgainst": 1200.0,
+          "games": 9,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 4,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1450.0,
+          "pointsAgainst": 1564.0,
+          "games": 9,
+          "winningPercentage": 0.4444444444444444
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 4,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1389.0,
+          "pointsAgainst": 1503.0,
+          "games": 9,
+          "winningPercentage": 0.4444444444444444
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1234.0,
+          "pointsAgainst": 1422.0,
+          "games": 9,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1222.0,
+          "pointsAgainst": 1308.0,
+          "games": 9,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 2,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1325.0,
+          "pointsAgainst": 1462.0,
+          "games": 9,
+          "winningPercentage": 0.2222222222222222
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1267.0,
+          "pointsAgainst": 1382.0,
+          "games": 9,
+          "winningPercentage": 0.2222222222222222
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 1,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1279.0,
+          "pointsAgainst": 1505.0,
+          "games": 9,
+          "winningPercentage": 0.1111111111111111
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1119.0,
+          "pointsAgainst": 1459.0,
+          "games": 9,
+          "winningPercentage": 0.1111111111111111
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 10,
+      "dateRange": "(Mon Mar 15, 2021 - Sun Mar 21, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 155.0,
+            "adjustment": 0.0,
+            "score": 155.0
+          },
+          "home": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 207.0,
+            "adjustment": 0.0,
+            "score": 207.0
+          },
+          "winner": "home",
+          "margin": 52.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 150.0,
+            "adjustment": 0.0,
+            "score": 150.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 183.0,
+            "adjustment": 0.0,
+            "score": 183.0
+          },
+          "winner": "home",
+          "margin": 33.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 146.0,
+            "adjustment": 0.0,
+            "score": 146.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 173.0,
+            "adjustment": 0.0,
+            "score": 173.0
+          },
+          "winner": "home",
+          "margin": 27.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 211.0,
+            "adjustment": 0.0,
+            "score": 211.0
+          },
+          "home": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 126.0,
+            "adjustment": 0.0,
+            "score": 126.0
+          },
+          "winner": "away",
+          "margin": 85.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 124.0,
+            "adjustment": 0.0,
+            "score": 124.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 198.0,
+            "adjustment": 0.0,
+            "score": 198.0
+          },
+          "winner": "home",
+          "margin": 74.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 164.0,
+            "adjustment": 0.0,
+            "score": 164.0
+          },
+          "home": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 211.0,
+            "adjustment": 0.0,
+            "score": 211.0
+          },
+          "winner": "home",
+          "margin": 47.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 85.0,
+            "adjustment": 0.0,
+            "score": 85.0
+          },
+          "home": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 189.0,
+            "adjustment": 0.0,
+            "score": 189.0
+          },
+          "winner": "home",
+          "margin": 104.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 160.0,
+            "adjustment": 0.0,
+            "score": 160.0
+          },
+          "home": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 127.0,
+            "adjustment": 0.0,
+            "score": 127.0
+          },
+          "winner": "away",
+          "margin": 33.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Rotterdam Red Foxes",
+          "score": 211.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Potomac Poutine",
+          "score": 85.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Bowness Ice Beavers",
+          "score": 164.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Les Rois de Lyon",
+          "score": 160.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 9,
+          "losses": 1,
+          "ties": 0,
+          "pointsFor": 1841.0,
+          "pointsAgainst": 1488.0,
+          "games": 10,
+          "winningPercentage": 0.9
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 8,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1725.0,
+          "pointsAgainst": 1460.0,
+          "games": 10,
+          "winningPercentage": 0.8
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 8,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1701.0,
+          "pointsAgainst": 1397.0,
+          "games": 10,
+          "winningPercentage": 0.8
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 7,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1743.0,
+          "pointsAgainst": 1600.0,
+          "games": 10,
+          "winningPercentage": 0.7
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 7,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1576.0,
+          "pointsAgainst": 1373.0,
+          "games": 10,
+          "winningPercentage": 0.7
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 7,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1546.0,
+          "pointsAgainst": 1324.0,
+          "games": 10,
+          "winningPercentage": 0.7
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 6,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1699.0,
+          "pointsAgainst": 1625.0,
+          "games": 10,
+          "winningPercentage": 0.6
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 6,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1585.0,
+          "pointsAgainst": 1514.0,
+          "games": 10,
+          "winningPercentage": 0.6
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 5,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1623.0,
+          "pointsAgainst": 1710.0,
+          "games": 10,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 4,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1513.0,
+          "pointsAgainst": 1701.0,
+          "games": 10,
+          "winningPercentage": 0.4
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 3,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1485.0,
+          "pointsAgainst": 1589.0,
+          "games": 10,
+          "winningPercentage": 0.3
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1389.0,
+          "pointsAgainst": 1629.0,
+          "games": 10,
+          "winningPercentage": 0.3
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1348.0,
+          "pointsAgainst": 1519.0,
+          "games": 10,
+          "winningPercentage": 0.3
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1413.0,
+          "pointsAgainst": 1555.0,
+          "games": 10,
+          "winningPercentage": 0.2
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 1,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1406.0,
+          "pointsAgainst": 1665.0,
+          "games": 10,
+          "winningPercentage": 0.1
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 1,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1204.0,
+          "pointsAgainst": 1648.0,
+          "games": 10,
+          "winningPercentage": 0.1
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 11,
+      "dateRange": "(Mon Mar 22, 2021 - Sun Mar 28, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 234.0,
+            "adjustment": 0.0,
+            "score": 234.0
+          },
+          "home": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 250.0,
+            "adjustment": 0.0,
+            "score": 250.0
+          },
+          "winner": "home",
+          "margin": 16.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 172.0,
+            "adjustment": 0.0,
+            "score": 172.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 149.0,
+            "adjustment": 0.0,
+            "score": 149.0
+          },
+          "winner": "away",
+          "margin": 23.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 152.0,
+            "adjustment": 0.0,
+            "score": 152.0
+          },
+          "home": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 145.0,
+            "adjustment": 0.0,
+            "score": 145.0
+          },
+          "winner": "away",
+          "margin": 7.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 132.0,
+            "adjustment": 0.0,
+            "score": 132.0
+          },
+          "home": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 119.0,
+            "adjustment": 0.0,
+            "score": 119.0
+          },
+          "winner": "away",
+          "margin": 13.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 174.0,
+            "adjustment": 0.0,
+            "score": 174.0
+          },
+          "home": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 101.0,
+            "adjustment": 0.0,
+            "score": 101.0
+          },
+          "winner": "away",
+          "margin": 73.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 173.0,
+            "adjustment": 0.0,
+            "score": 173.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 162.0,
+            "adjustment": 0.0,
+            "score": 162.0
+          },
+          "winner": "away",
+          "margin": 11.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 121.0,
+            "adjustment": 0.0,
+            "score": 121.0
+          },
+          "home": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 159.0,
+            "adjustment": 0.0,
+            "score": 159.0
+          },
+          "winner": "home",
+          "margin": 38.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 112.0,
+            "adjustment": 0.0,
+            "score": 112.0
+          },
+          "home": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 153.0,
+            "adjustment": 0.0,
+            "score": 153.0
+          },
+          "winner": "home",
+          "margin": 41.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Steel Valley Fishers",
+          "score": 250.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Cachco Eagles",
+          "score": 101.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Taku River Glaciers",
+          "score": 234.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Bowness Ice Beavers",
+          "score": 132.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 9,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1990.0,
+          "pointsAgainst": 1660.0,
+          "games": 11,
+          "winningPercentage": 0.8181818181818182
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 9,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 1853.0,
+          "pointsAgainst": 1542.0,
+          "games": 11,
+          "winningPercentage": 0.8181818181818182
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 8,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1993.0,
+          "pointsAgainst": 1834.0,
+          "games": 11,
+          "winningPercentage": 0.7272727272727273
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 8,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1826.0,
+          "pointsAgainst": 1634.0,
+          "games": 11,
+          "winningPercentage": 0.7272727272727273
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 8,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1718.0,
+          "pointsAgainst": 1473.0,
+          "games": 11,
+          "winningPercentage": 0.7272727272727273
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 7,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1831.0,
+          "pointsAgainst": 1744.0,
+          "games": 11,
+          "winningPercentage": 0.6363636363636364
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 7,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1738.0,
+          "pointsAgainst": 1546.0,
+          "games": 11,
+          "winningPercentage": 0.6363636363636364
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 6,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1819.0,
+          "pointsAgainst": 1764.0,
+          "games": 11,
+          "winningPercentage": 0.5454545454545454
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 5,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1768.0,
+          "pointsAgainst": 1862.0,
+          "games": 11,
+          "winningPercentage": 0.45454545454545453
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 5,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1666.0,
+          "pointsAgainst": 1813.0,
+          "games": 11,
+          "winningPercentage": 0.45454545454545453
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 4,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1659.0,
+          "pointsAgainst": 1690.0,
+          "games": 11,
+          "winningPercentage": 0.36363636363636365
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1508.0,
+          "pointsAgainst": 1761.0,
+          "games": 11,
+          "winningPercentage": 0.2727272727272727
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1460.0,
+          "pointsAgainst": 1672.0,
+          "games": 11,
+          "winningPercentage": 0.2727272727272727
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 2,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1579.0,
+          "pointsAgainst": 1827.0,
+          "games": 11,
+          "winningPercentage": 0.18181818181818182
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1534.0,
+          "pointsAgainst": 1714.0,
+          "games": 11,
+          "winningPercentage": 0.18181818181818182
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 2,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1363.0,
+          "pointsAgainst": 1769.0,
+          "games": 11,
+          "winningPercentage": 0.18181818181818182
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 12,
+      "dateRange": "(Mon Mar 29, 2021 - Sun Apr 4, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 194.0,
+            "adjustment": 0.0,
+            "score": 194.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 167.0,
+            "adjustment": 0.0,
+            "score": 167.0
+          },
+          "winner": "away",
+          "margin": 27.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 86.0,
+            "adjustment": 0.0,
+            "score": 86.0
+          },
+          "home": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 153.0,
+            "adjustment": 0.0,
+            "score": 153.0
+          },
+          "winner": "home",
+          "margin": 67.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 129.0,
+            "adjustment": 0.0,
+            "score": 129.0
+          },
+          "home": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 156.0,
+            "adjustment": 0.0,
+            "score": 156.0
+          },
+          "winner": "home",
+          "margin": 27.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 150.0,
+            "adjustment": 0.0,
+            "score": 150.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 185.0,
+            "adjustment": 0.0,
+            "score": 185.0
+          },
+          "winner": "home",
+          "margin": 35.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 180.0,
+            "adjustment": 0.0,
+            "score": 180.0
+          },
+          "home": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 109.0,
+            "adjustment": 0.0,
+            "score": 109.0
+          },
+          "winner": "away",
+          "margin": 71.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 89.0,
+            "adjustment": 0.0,
+            "score": 89.0
+          },
+          "home": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 98.0,
+            "adjustment": 0.0,
+            "score": 98.0
+          },
+          "winner": "home",
+          "margin": 9.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 164.0,
+            "adjustment": 0.0,
+            "score": 164.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 199.0,
+            "adjustment": 0.0,
+            "score": 199.0
+          },
+          "winner": "home",
+          "margin": 35.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 142.0,
+            "adjustment": 0.0,
+            "score": 142.0
+          },
+          "home": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 94.0,
+            "adjustment": 0.0,
+            "score": 94.0
+          },
+          "winner": "away",
+          "margin": 48.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Slick City Jackals",
+          "score": 199.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Potomac Poutine",
+          "score": 86.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Les Rois de Lyon",
+          "score": 167.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Scotty",
+          "score": 98.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 10,
+          "losses": 2,
+          "ties": 0,
+          "pointsFor": 2143.0,
+          "pointsAgainst": 1746.0,
+          "games": 12,
+          "winningPercentage": 0.8333333333333334
+        },
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 9,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 2187.0,
+          "pointsAgainst": 2001.0,
+          "games": 12,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 9,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 2017.0,
+          "pointsAgainst": 1741.0,
+          "games": 12,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 9,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1968.0,
+          "pointsAgainst": 1728.0,
+          "games": 12,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 9,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 1874.0,
+          "pointsAgainst": 1602.0,
+          "games": 12,
+          "winningPercentage": 0.75
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 8,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1937.0,
+          "pointsAgainst": 1710.0,
+          "games": 12,
+          "winningPercentage": 0.6666666666666666
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 7,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 2004.0,
+          "pointsAgainst": 1914.0,
+          "games": 12,
+          "winningPercentage": 0.5833333333333334
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 7,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1981.0,
+          "pointsAgainst": 1929.0,
+          "games": 12,
+          "winningPercentage": 0.5833333333333334
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 6,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1948.0,
+          "pointsAgainst": 1971.0,
+          "games": 12,
+          "winningPercentage": 0.5
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 5,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1775.0,
+          "pointsAgainst": 1993.0,
+          "games": 12,
+          "winningPercentage": 0.4166666666666667
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 4,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1826.0,
+          "pointsAgainst": 1884.0,
+          "games": 12,
+          "winningPercentage": 0.3333333333333333
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 3,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1677.0,
+          "pointsAgainst": 1916.0,
+          "games": 12,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1602.0,
+          "pointsAgainst": 1903.0,
+          "games": 12,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 3,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1589.0,
+          "pointsAgainst": 1828.0,
+          "games": 12,
+          "winningPercentage": 0.25
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1623.0,
+          "pointsAgainst": 1812.0,
+          "games": 12,
+          "winningPercentage": 0.16666666666666666
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 2,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1449.0,
+          "pointsAgainst": 1922.0,
+          "games": 12,
+          "winningPercentage": 0.16666666666666666
+        }
+      ]
+    },
+    {
+      "scoringPeriod": 13,
+      "dateRange": "(Mon Apr 5, 2021 - Sun Apr 11, 2021)",
+      "matchups": [
+        {
+          "away": {
+            "fantraxTeamId": "uizq44wukcl6g0ke",
+            "name": "Rotterdam Red Foxes",
+            "fantasyPoints": 258.0,
+            "adjustment": 0.0,
+            "score": 258.0
+          },
+          "home": {
+            "fantraxTeamId": "h1b90jyfkcl6g0kq",
+            "name": "Steel Valley Fishers",
+            "fantasyPoints": 298.0,
+            "adjustment": 0.0,
+            "score": 298.0
+          },
+          "winner": "home",
+          "margin": 40.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "apqgyip8kcl6g0ka",
+            "name": "Synth City",
+            "fantasyPoints": 152.0,
+            "adjustment": 0.0,
+            "score": 152.0
+          },
+          "home": {
+            "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+            "name": "Scotty",
+            "fantasyPoints": 184.0,
+            "adjustment": 0.0,
+            "score": 184.0
+          },
+          "winner": "home",
+          "margin": 32.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "mwnnbgsikcl6g0l0",
+            "name": "Pennant Pumpjacks",
+            "fantasyPoints": 123.0,
+            "adjustment": 0.0,
+            "score": 123.0
+          },
+          "home": {
+            "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+            "name": "Taku River Glaciers",
+            "fantasyPoints": 193.0,
+            "adjustment": 0.0,
+            "score": 193.0
+          },
+          "winner": "home",
+          "margin": 70.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "k97vyy6okcl6g0kv",
+            "name": "Mt. Pearl Vikings (Ed)",
+            "fantasyPoints": 177.0,
+            "adjustment": 0.0,
+            "score": 177.0
+          },
+          "home": {
+            "fantraxTeamId": "oe2h93jtkcl6g0kz",
+            "name": "Slick City Jackals",
+            "fantasyPoints": 169.0,
+            "adjustment": 0.0,
+            "score": 169.0
+          },
+          "winner": "away",
+          "margin": 8.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "s5qziu1wkcl6g0kr",
+            "name": "Bowness Ice Beavers",
+            "fantasyPoints": 161.0,
+            "adjustment": 0.0,
+            "score": 161.0
+          },
+          "home": {
+            "fantraxTeamId": "6mvxfd87kcl6g0ko",
+            "name": "Seminole Road Snakeheads",
+            "fantasyPoints": 99.0,
+            "adjustment": 0.0,
+            "score": 99.0
+          },
+          "winner": "away",
+          "margin": 62.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+            "name": "Potomac Poutine",
+            "fantasyPoints": 132.0,
+            "adjustment": 0.0,
+            "score": 132.0
+          },
+          "home": {
+            "fantraxTeamId": "aucv4b1okcl6g0km",
+            "name": "Les Rois de Lyon",
+            "fantasyPoints": 149.0,
+            "adjustment": 0.0,
+            "score": 149.0
+          },
+          "winner": "home",
+          "margin": 17.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "9zrjzycmkcl6g0kg",
+            "name": "Alberta Cobra Chickens",
+            "fantasyPoints": 158.0,
+            "adjustment": 0.0,
+            "score": 158.0
+          },
+          "home": {
+            "fantraxTeamId": "tyhuo02xkcl6g0kx",
+            "name": "Cachco Eagles",
+            "fantasyPoints": 136.0,
+            "adjustment": 0.0,
+            "score": 136.0
+          },
+          "winner": "away",
+          "margin": 22.0
+        },
+        {
+          "away": {
+            "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+            "name": "Minnesota Frozen Pines",
+            "fantasyPoints": 167.0,
+            "adjustment": 0.0,
+            "score": 167.0
+          },
+          "home": {
+            "fantraxTeamId": "nwmkby0ykcl6g0kc",
+            "name": "Maplewood HC",
+            "fantasyPoints": 157.0,
+            "adjustment": 0.0,
+            "score": 157.0
+          },
+          "winner": "away",
+          "margin": 10.0
+        }
+      ],
+      "awards": {
+        "highestScore": {
+          "name": "Steel Valley Fishers",
+          "score": 298.0,
+          "result": "W"
+        },
+        "lowestScore": {
+          "name": "Seminole Road Snakeheads",
+          "score": 99.0,
+          "result": "L"
+        },
+        "mostPointsInLoss": {
+          "name": "Rotterdam Red Foxes",
+          "score": 258.0,
+          "result": "L"
+        },
+        "lowestPointsInWin": {
+          "name": "Les Rois de Lyon",
+          "score": 149.0,
+          "result": "W"
+        }
+      },
+      "cumulativeStandings": [
+        {
+          "fantraxTeamId": "h1b90jyfkcl6g0kq",
+          "name": "Steel Valley Fishers",
+          "wins": 10,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 2485.0,
+          "pointsAgainst": 2259.0,
+          "games": 13,
+          "winningPercentage": 0.7692307692307693
+        },
+        {
+          "fantraxTeamId": "uizq44wukcl6g0ke",
+          "name": "Rotterdam Red Foxes",
+          "wins": 10,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 2401.0,
+          "pointsAgainst": 2044.0,
+          "games": 13,
+          "winningPercentage": 0.7692307692307693
+        },
+        {
+          "fantraxTeamId": "9zrjzycmkcl6g0kg",
+          "name": "Alberta Cobra Chickens",
+          "wins": 10,
+          "losses": 3,
+          "ties": 0,
+          "pointsFor": 2175.0,
+          "pointsAgainst": 1877.0,
+          "games": 13,
+          "winningPercentage": 0.7692307692307693
+        },
+        {
+          "fantraxTeamId": "tyhuo02xkcl6g0kx",
+          "name": "Cachco Eagles",
+          "wins": 9,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 2104.0,
+          "pointsAgainst": 1886.0,
+          "games": 13,
+          "winningPercentage": 0.6923076923076923
+        },
+        {
+          "fantraxTeamId": "apqgyip8kcl6g0ka",
+          "name": "Synth City",
+          "wins": 9,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 2026.0,
+          "pointsAgainst": 1786.0,
+          "games": 13,
+          "winningPercentage": 0.6923076923076923
+        },
+        {
+          "fantraxTeamId": "fy3ig1xkkcl6g0kk",
+          "name": "Taku River Glaciers",
+          "wins": 8,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 2197.0,
+          "pointsAgainst": 2037.0,
+          "games": 13,
+          "winningPercentage": 0.6153846153846154
+        },
+        {
+          "fantraxTeamId": "s5qziu1wkcl6g0kr",
+          "name": "Bowness Ice Beavers",
+          "wins": 8,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 2142.0,
+          "pointsAgainst": 2028.0,
+          "games": 13,
+          "winningPercentage": 0.6153846153846154
+        },
+        {
+          "fantraxTeamId": "oe2h93jtkcl6g0kz",
+          "name": "Slick City Jackals",
+          "wins": 8,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 2106.0,
+          "pointsAgainst": 1887.0,
+          "games": 13,
+          "winningPercentage": 0.6153846153846154
+        },
+        {
+          "fantraxTeamId": "k97vyy6okcl6g0kv",
+          "name": "Mt. Pearl Vikings (Ed)",
+          "wins": 7,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 2125.0,
+          "pointsAgainst": 2140.0,
+          "games": 13,
+          "winningPercentage": 0.5384615384615384
+        },
+        {
+          "fantraxTeamId": "aucv4b1okcl6g0km",
+          "name": "Les Rois de Lyon",
+          "wins": 5,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1975.0,
+          "pointsAgainst": 2016.0,
+          "games": 13,
+          "winningPercentage": 0.38461538461538464
+        },
+        {
+          "fantraxTeamId": "mwnnbgsikcl6g0l0",
+          "name": "Pennant Pumpjacks",
+          "wins": 5,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1898.0,
+          "pointsAgainst": 2186.0,
+          "games": 13,
+          "winningPercentage": 0.38461538461538464
+        },
+        {
+          "fantraxTeamId": "l3f9oyk0kcl6g0l2",
+          "name": "Scotty",
+          "wins": 4,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1861.0,
+          "pointsAgainst": 2068.0,
+          "games": 13,
+          "winningPercentage": 0.3076923076923077
+        },
+        {
+          "fantraxTeamId": "1uzfiwt0kcl6g0ki",
+          "name": "Minnesota Frozen Pines",
+          "wins": 4,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1756.0,
+          "pointsAgainst": 1985.0,
+          "games": 13,
+          "winningPercentage": 0.3076923076923077
+        },
+        {
+          "fantraxTeamId": "nwmkby0ykcl6g0kc",
+          "name": "Maplewood HC",
+          "wins": 3,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1759.0,
+          "pointsAgainst": 2070.0,
+          "games": 13,
+          "winningPercentage": 0.23076923076923078
+        },
+        {
+          "fantraxTeamId": "6mvxfd87kcl6g0ko",
+          "name": "Seminole Road Snakeheads",
+          "wins": 2,
+          "losses": 11,
+          "ties": 0,
+          "pointsFor": 1722.0,
+          "pointsAgainst": 1973.0,
+          "games": 13,
+          "winningPercentage": 0.15384615384615385
+        },
+        {
+          "fantraxTeamId": "dvh4nlv3kcl6g0kt",
+          "name": "Potomac Poutine",
+          "wins": 2,
+          "losses": 11,
+          "ties": 0,
+          "pointsFor": 1581.0,
+          "pointsAgainst": 2071.0,
+          "games": 13,
+          "winningPercentage": 0.15384615384615385
+        }
+      ]
+    }
+  ]
+}
