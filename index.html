@@ -380,17 +380,25 @@
       color: var(--white);
     }
 
-    .team-score-inline {
+    .matchup-result-inline {
       display: inline-flex;
       align-items: baseline;
-      gap: 9px;
+      justify-content: flex-end;
+      gap: 13px;
+      min-width: 130px;
       white-space: nowrap;
+      font-variant-numeric: tabular-nums;
     }
 
-    .team-score-inline .score {
+    .matchup-result-inline .score {
       color: var(--silver-light);
       font-weight: 950;
-      font-variant-numeric: tabular-nums;
+    }
+
+    .matchup-result-inline .margin {
+      min-width: 42px;
+      text-align: right;
+      font-weight: 850;
     }
 
     .historical-name {
@@ -665,7 +673,7 @@
           <label for="weekLengthSelect" id="weekLengthLabel">Week Length</label>
           <select id="weekLengthSelect">
             <option value="all">All Week Lengths — Actual Scores</option>
-            <option value="normalized">All Weeks — 7-Day Average</option>
+            <option value="normalized">All Weeks — Schedule-Adjusted 7-Day Average</option>
             <option value="short">Fewer than 7 Days</option>
             <option value="standard">Exactly 7 Days</option>
             <option value="long">More than 7 Days</option>
@@ -761,7 +769,7 @@
               <th>Season</th>
               <th class="team-column">Team A</th>
               <th class="team-column">Team B</th>
-              <th>Margin</th>
+              <th>Score / Margin</th>
             </tr>
           </thead>
           <tbody id="headToHeadBody"></tbody>
@@ -871,6 +879,7 @@
     const app = {
       manifest: null,
       franchiseData: null,
+      scheduleVolume: null,
       seasons: [],
       games: [],
       franchiseById: new Map(),
@@ -888,9 +897,10 @@
       const status = document.getElementById("status");
 
       try {
-        const [manifestResult, franchiseResult] = await Promise.allSettled([
+        const [manifestResult, franchiseResult, scheduleResult] = await Promise.allSettled([
           fetchJson("./data/seasons.json"),
-          fetchJson("./data/franchises.json")
+          fetchJson("./data/franchises.json"),
+          fetchJson("./data/nhl-schedule-volume.json")
         ]);
 
         app.manifest = manifestResult.status === "fulfilled"
@@ -900,6 +910,10 @@
         app.franchiseData = franchiseResult.status === "fulfilled"
           ? franchiseResult.value
           : FALLBACK_FRANCHISES;
+
+        app.scheduleVolume = scheduleResult.status === "fulfilled"
+          ? scheduleResult.value
+          : null;
 
         buildFranchiseMaps();
 
@@ -939,9 +953,15 @@
         attachEvents();
         renderAll();
 
-        status.textContent = missing
-          ? `Loaded ${app.seasons.length} seasons. ${missing} manifest file${missing === 1 ? "" : "s"} could not be loaded and were skipped.`
-          : `Loaded ${app.seasons.length} seasons and rebuilt all regular-season records.`;
+        const scheduleMessage = app.scheduleVolume
+          ? " Schedule-adjusted averages are active."
+          : " Schedule-volume data could not be loaded; adjusted averages are unavailable.";
+
+        status.textContent = (
+          missing
+            ? `Loaded ${app.seasons.length} seasons. ${missing} manifest file${missing === 1 ? "" : "s"} could not be loaded and were skipped.`
+            : `Loaded ${app.seasons.length} seasons and rebuilt all regular-season records.`
+        ) + scheduleMessage;
       } catch (error) {
         console.error(error);
         status.classList.add("error");
@@ -1067,25 +1087,62 @@
       return `${days} day${days === 1 ? "" : "s"}`;
     }
 
-    function sevenDayEquivalent(value, days) {
+    function scheduleAdjustedEquivalent(value, item) {
       const number = Number(value);
-      const length = Number(days);
-      if (!Number.isFinite(number) || !Number.isFinite(length) || length <= 0) {
+      const nhlGames = Number(item?.nhlGames);
+      const normalGames = Number(item?.normalSevenDayGames);
+
+      if (
+        !Number.isFinite(number) ||
+        !Number.isFinite(nhlGames) ||
+        !Number.isFinite(normalGames) ||
+        nhlGames <= 0 ||
+        normalGames <= 0
+      ) {
         return null;
       }
-      return number / length * 7;
+
+      return number * normalGames / nhlGames;
+    }
+
+    function hasScheduleVolume(item) {
+      return (
+        Number.isFinite(Number(item?.nhlGames)) &&
+        Number(item?.nhlGames) > 0 &&
+        Number.isFinite(Number(item?.normalSevenDayGames)) &&
+        Number(item?.normalSevenDayGames) > 0
+      );
     }
 
     function recordScore(item, normalized) {
       return normalized
-        ? sevenDayEquivalent(item.score, item.weekLengthDays)
+        ? scheduleAdjustedEquivalent(item.score, item)
         : item.score;
     }
 
     function recordOpponentScore(item, normalized) {
       return normalized
-        ? sevenDayEquivalent(item.opponentScore, item.weekLengthDays)
+        ? scheduleAdjustedEquivalent(item.opponentScore, item)
         : item.opponentScore;
+    }
+
+    function scheduleVolumeLabel(item) {
+      if (!hasScheduleVolume(item)) {
+        return `${weekLengthLabel(item.weekLengthDays)} · schedule unavailable`;
+      }
+
+      return `${item.nhlGames} NHL games · ${item.activeNhlDays} active days`;
+    }
+
+    function scheduleVolumeTitle(item) {
+      if (!hasScheduleVolume(item)) return item.dateRange || "";
+
+      return [
+        item.dateRange,
+        `${item.nhlGames} NHL games in this scoring period`,
+        `${item.activeNhlDays} days with NHL games`,
+        `${formatNumber(item.normalSevenDayGames, 1)} games in a normal seven-day period`
+      ].join(" · ");
     }
 
     function recordMargin(item, normalized) {
@@ -1109,6 +1166,15 @@
           const dateRange = String(week?.dateRange || "");
           const weekLengthDays = getWeekLengthDays(dateRange);
           const weekLengthCategory = getWeekLengthCategory(weekLengthDays);
+          const scheduleSeason = app.scheduleVolume?.seasons?.[season] || null;
+          const schedulePeriod = scheduleSeason?.periods?.[String(period)] || null;
+          const nhlGames = Number(schedulePeriod?.nhlGames);
+          const activeNhlDays = Number(schedulePeriod?.activeNhlDays);
+          const inactiveNhlDays = Number(schedulePeriod?.inactiveNhlDays);
+          const normalSevenDayGames = Number(
+            schedulePeriod?.normalSevenDayGames ?? scheduleSeason?.normalSevenDayGames
+          );
+          const scheduleAdjustmentFactor = Number(schedulePeriod?.adjustmentFactor);
 
           matchups.forEach((matchup, matchupIndex) => {
             const awayScore = scoreOf(matchup?.away);
@@ -1132,6 +1198,11 @@
               dateRange,
               weekLengthDays,
               weekLengthCategory,
+              nhlGames,
+              activeNhlDays,
+              inactiveNhlDays,
+              normalSevenDayGames,
+              scheduleAdjustmentFactor,
               awayName,
               homeName,
               awayFranchiseId: resolveFranchiseId(awayName),
@@ -1510,6 +1581,11 @@
           dateRange: game.dateRange,
           weekLengthDays: game.weekLengthDays,
           weekLengthCategory: game.weekLengthCategory,
+          nhlGames: game.nhlGames,
+          activeNhlDays: game.activeNhlDays,
+          inactiveNhlDays: game.inactiveNhlDays,
+          normalSevenDayGames: game.normalSevenDayGames,
+          scheduleAdjustmentFactor: game.scheduleAdjustmentFactor,
           game
         },
         {
@@ -1524,6 +1600,11 @@
           dateRange: game.dateRange,
           weekLengthDays: game.weekLengthDays,
           weekLengthCategory: game.weekLengthCategory,
+          nhlGames: game.nhlGames,
+          activeNhlDays: game.activeNhlDays,
+          inactiveNhlDays: game.inactiveNhlDays,
+          normalSevenDayGames: game.normalSevenDayGames,
+          scheduleAdjustmentFactor: game.scheduleAdjustmentFactor,
           game
         }
       ]);
@@ -1536,9 +1617,11 @@
       const selectedWeekLength = weekLengthSelect?.value || "all";
       const normalized = selectedWeekLength === "normalized";
       const allSides = weeklySides();
-      const sides = selectedWeekLength === "all" || normalized
-        ? allSides
-        : allSides.filter(item => item.weekLengthCategory === selectedWeekLength);
+      const sides = normalized
+        ? allSides.filter(hasScheduleVolume)
+        : selectedWeekLength === "all"
+          ? allSides
+          : allSides.filter(item => item.weekLengthCategory === selectedWeekLength);
 
       const completedSeasonIds = new Set(
         app.seasons
@@ -1567,7 +1650,7 @@
 
       const weeklyDefinitions = {
         highestWeeklyScore: {
-          label: normalized ? "7-Day Avg" : "Score",
+          label: normalized ? "Sched. 7-Day Avg" : "Score",
           rows: sides.slice().sort((a, b) =>
             scoreValue(b) - scoreValue(a) ||
             opponentValue(b) - opponentValue(a) ||
@@ -1578,7 +1661,7 @@
           detail: item => `${item.season} · Week ${item.period}`
         },
         lowestWeeklyScore: {
-          label: normalized ? "7-Day Avg" : "Score",
+          label: normalized ? "Sched. 7-Day Avg" : "Score",
           rows: sides.slice().sort((a, b) =>
             scoreValue(a) - scoreValue(b) ||
             opponentValue(a) - opponentValue(b) ||
@@ -1589,7 +1672,7 @@
           detail: item => `${item.season} · Week ${item.period}`
         },
         biggestWin: {
-          label: normalized ? "7-Day Margin" : "Margin",
+          label: normalized ? "Sched. 7-Day Margin" : "Margin",
           rows: sides
             .filter(item => item.score > item.opponentScore)
             .sort((a, b) =>
@@ -1604,7 +1687,7 @@
           detail: item => `${item.season} · Week ${item.period}`
         },
         closestWin: {
-          label: normalized ? "7-Day Margin" : "Margin",
+          label: normalized ? "Sched. 7-Day Margin" : "Margin",
           rows: sides
             .filter(item => item.score > item.opponentScore)
             .sort((a, b) =>
@@ -1619,7 +1702,7 @@
           detail: item => `${item.season} · Week ${item.period}`
         },
         mostPointsInLoss: {
-          label: normalized ? "7-Day Avg" : "Score",
+          label: normalized ? "Sched. 7-Day Avg" : "Score",
           rows: sides
             .filter(item => item.score < item.opponentScore)
             .sort((a, b) =>
@@ -1634,7 +1717,7 @@
           detail: item => `${item.season} · Week ${item.period}`
         },
         leastPointsInWin: {
-          label: normalized ? "7-Day Avg" : "Score",
+          label: normalized ? "Sched. 7-Day Avg" : "Score",
           rows: sides
             .filter(item => item.score > item.opponentScore)
             .sort((a, b) =>
@@ -1741,7 +1824,7 @@
           <th>${escapeHtml(definition.label)}</th>
           <th class="team-column">Result</th>
           <th>Season / Week</th>
-          <th>Length</th>
+          <th>NHL Schedule</th>
         </tr>
       `;
 
@@ -1753,7 +1836,7 @@
               <td>${escapeHtml(definition.value(item))}</td>
               <td class="team-column">${escapeHtml(definition.result(item))}</td>
               <td>${escapeHtml(definition.detail(item))}</td>
-              <td title="${escapeHtml(item.dateRange)}">${escapeHtml(weekLengthLabel(item.weekLengthDays))}</td>
+              <td title="${escapeHtml(scheduleVolumeTitle(item))}">${escapeHtml(scheduleVolumeLabel(item))}</td>
             </tr>
           `).join("")
         : `<tr><td colspan="6" class="empty">No qualifying weekly records are available for this week length.</td></tr>`;
@@ -1928,19 +2011,14 @@
             return `
               <tr>
                 <td>${escapeHtml(game.season)}</td>
-                <td class="team-column">
-                  <span class="team-score-inline">
-                    <span class="team-name">${escapeHtml(nameA)}</span>
-                    <span class="score">${formatNumber(scoreA)}</span>
+                <td class="team-column"><span class="team-name">${escapeHtml(nameA)}</span></td>
+                <td class="team-column"><span class="team-name">${escapeHtml(nameB)}</span></td>
+                <td>
+                  <span class="matchup-result-inline">
+                    <span class="score">${formatNumber(scoreA)}–${formatNumber(scoreB)}</span>
+                    <span class="margin ${numberClass(diff)}">${formatSigned(diff)}</span>
                   </span>
                 </td>
-                <td class="team-column">
-                  <span class="team-score-inline">
-                    <span class="team-name">${escapeHtml(nameB)}</span>
-                    <span class="score">${formatNumber(scoreB)}</span>
-                  </span>
-                </td>
-                <td class="${numberClass(diff)}">${formatSigned(diff)}</td>
               </tr>
             `;
           }).join("")
