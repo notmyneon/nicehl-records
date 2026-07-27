@@ -609,7 +609,6 @@
               <th><button class="sortable" type="button" data-sort="games">GP</button></th>
               <th><button class="sortable" type="button" data-sort="wins">W</button></th>
               <th><button class="sortable" type="button" data-sort="losses">L</button></th>
-              <th><button class="sortable" type="button" data-sort="ties">T</button></th>
               <th><button class="sortable" type="button" data-sort="winPct">Win%</button></th>
               <th><button class="sortable" type="button" data-sort="pointsFor">PF</button></th>
               <th><button class="sortable" type="button" data-sort="pointsAgainst">PA</button></th>
@@ -732,7 +731,7 @@
             <tr>
               <th>Rank</th>
               <th class="team-column">Team</th>
-              <th>GP</th><th>W</th><th>L</th><th>T</th><th>Win%</th>
+              <th>GP</th><th>W</th><th>L</th><th>Win%</th>
               <th>PF</th><th>PA</th><th>Diff</th><th>Avg PF</th>
             </tr>
           </thead>
@@ -776,6 +775,77 @@
     <section class="panel">
       <div class="panel-header">
         <div>
+          <span class="section-kicker">Deadlock Deciders</span>
+          <h2>Tiebreaker Archive</h2>
+          <p class="panel-note">
+            These matchups finished level on raw fantasy points. Fantrax then
+            awarded an additional tiebreaker point to determine the winner.
+          </p>
+        </div>
+      </div>
+
+      <div id="tiebreakerSummary" class="history-summary"></div>
+
+      <div class="table-wrap">
+        <table style="min-width:940px">
+          <thead>
+            <tr>
+              <th>Season</th>
+              <th>Week</th>
+              <th class="team-column">Winner</th>
+              <th class="team-column">Loser</th>
+              <th>Raw Tie</th>
+              <th>Added</th>
+              <th>Final Score</th>
+              <th class="team-column">Scoring Period</th>
+            </tr>
+          </thead>
+          <tbody id="tiebreakerBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <span class="section-kicker">Opponent-by-Opponent</span>
+          <h2>Team vs. League</h2>
+          <p class="panel-note">
+            Select one franchise to view its all-time regular-season record against
+            every opponent, with points for and points against.
+          </p>
+        </div>
+        <div class="control-group">
+          <label for="teamVsLeagueSelect">Team</label>
+          <select id="teamVsLeagueSelect"></select>
+        </div>
+      </div>
+
+      <div id="teamVsLeagueSummary" class="history-summary"></div>
+
+      <div class="table-wrap">
+        <table style="min-width:900px">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th class="team-column">Opponent</th>
+              <th>GP</th>
+              <th>W</th>
+              <th>L</th>
+              <th>Win%</th>
+              <th>PF</th>
+              <th>PA</th>
+              <th>Diff</th>
+            </tr>
+          </thead>
+          <tbody id="teamVsLeagueBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
           <span class="section-kicker">Identity and Results</span>
           <h2>Franchise History</h2>
           <p class="panel-note">
@@ -793,7 +863,7 @@
           <thead>
             <tr>
               <th>Season</th><th class="team-column">Name Used</th><th>Finish</th>
-              <th>GP</th><th>W</th><th>L</th><th>T</th><th>Win%</th>
+              <th>GP</th><th>W</th><th>L</th><th>Win%</th>
               <th>PF</th><th>PA</th><th>Diff</th><th>Avg PF</th>
             </tr>
           </thead>
@@ -1057,6 +1127,10 @@
           matchups.forEach((matchup, matchupIndex) => {
             const awayScore = scoreOf(matchup?.away);
             const homeScore = scoreOf(matchup?.home);
+            const awayFantasyPoints = Number(matchup?.away?.fantasyPoints);
+            const homeFantasyPoints = Number(matchup?.home?.fantasyPoints);
+            const awayAdjustment = Number(matchup?.away?.adjustment || 0);
+            const homeAdjustment = Number(matchup?.home?.adjustment || 0);
 
             if (!Number.isFinite(awayScore) || !Number.isFinite(homeScore)) return;
 
@@ -1076,6 +1150,10 @@
               homeName,
               awayFranchiseId: resolveFranchiseId(awayName),
               homeFranchiseId: resolveFranchiseId(homeName),
+              awayFantasyPoints,
+              homeFantasyPoints,
+              awayAdjustment,
+              homeAdjustment,
               awayScore,
               homeScore,
               margin: Math.abs(awayScore - homeScore)
@@ -1287,6 +1365,7 @@
       const franchiseSelect = document.getElementById("franchiseSelect");
       const headToHeadA = document.getElementById("headToHeadA");
       const headToHeadB = document.getElementById("headToHeadB");
+      const teamVsLeagueSelect = document.getElementById("teamVsLeagueSelect");
 
       seasonSelect.innerHTML = app.seasons
         .slice()
@@ -1305,6 +1384,7 @@
       franchiseSelect.innerHTML = franchiseOptions;
       headToHeadA.innerHTML = franchiseOptions;
       headToHeadB.innerHTML = franchiseOptions;
+      teamVsLeagueSelect.innerHTML = franchiseOptions;
 
       const latestSeason = app.seasons[app.seasons.length - 1]?.entry?.id;
       const latestIds = new Set(
@@ -1319,6 +1399,7 @@
       if (defaults[0]) {
         franchiseSelect.value = defaults[0].franchiseId;
         headToHeadA.value = defaults[0].franchiseId;
+        teamVsLeagueSelect.value = defaults[0].franchiseId;
       }
       if (defaults[1]) headToHeadB.value = defaults[1].franchiseId;
     }
@@ -1344,6 +1425,7 @@
       document.getElementById("franchiseSelect").addEventListener("change", renderFranchiseHistory);
       document.getElementById("headToHeadA").addEventListener("change", renderHeadToHead);
       document.getElementById("headToHeadB").addEventListener("change", renderHeadToHead);
+      document.getElementById("teamVsLeagueSelect").addEventListener("change", renderTeamVsLeague);
     }
 
     function renderAll() {
@@ -1353,6 +1435,8 @@
       renderStreaks();
       renderSeasonStandings();
       renderHeadToHead();
+      renderTiebreakers();
+      renderTeamVsLeague();
       renderFranchiseHistory();
     }
 
@@ -1410,7 +1494,6 @@
             <td>${item.games}</td>
             <td>${item.wins}</td>
             <td>${item.losses}</td>
-            <td>${item.ties}</td>
             <td>${formatPct(item.winPct)}</td>
             <td>${formatNumber(item.pointsFor)}</td>
             <td>${formatNumber(item.pointsAgainst)}</td>
@@ -1712,7 +1795,7 @@
               <td class="team-column"><span class="team-name">${escapeHtml(item.historicalName)}</span></td>
               <td>${escapeHtml(definition.value(item))}</td>
               <td>${escapeHtml(item.season)}</td>
-              <td>${item.wins}-${item.losses}${item.ties ? `-${item.ties}` : ""}</td>
+              <td>${item.wins}-${item.losses}</td>
               <td>${formatNumber(item.pointsFor)}</td>
               <td>${formatNumber(item.pointsAgainst)}</td>
               <td class="${numberClass(item.differential)}">${formatSigned(item.differential)}</td>
@@ -1789,7 +1872,6 @@
               <td>${item.games}</td>
               <td>${item.wins}</td>
               <td>${item.losses}</td>
-              <td>${item.ties}</td>
               <td>${formatPct(item.winPct)}</td>
               <td>${formatNumber(item.pointsFor)}</td>
               <td>${formatNumber(item.pointsAgainst)}</td>
@@ -1797,7 +1879,7 @@
               <td>${formatNumber(item.averageFor, 1)}</td>
             </tr>
           `).join("")
-        : `<tr><td colspan="11" class="empty">No completed matchups are available for this season.</td></tr>`;
+        : `<tr><td colspan="10" class="empty">No completed matchups are available for this season.</td></tr>`;
     }
 
     function renderHeadToHead() {
@@ -1841,7 +1923,7 @@
           <strong>${escapeHtml(franchiseName(franchiseA))}</strong>
           <span>${winsA} wins · ${formatNumber(pointsA)} points</span>
         </div>
-        <div class="versus-mark">${winsA}–${winsB}${ties ? `–${ties}` : ""}</div>
+        <div class="versus-mark">${winsA}–${winsB}</div>
         <div class="versus-team">
           <strong>${escapeHtml(franchiseName(franchiseB))}</strong>
           <span>${winsB} wins · ${formatNumber(pointsB)} points</span>
@@ -1872,6 +1954,227 @@
         : `<tr><td colspan="7" class="empty">These franchises have not met in the loaded regular-season data.</td></tr>`;
     }
 
+    function getTiebreakerGames() {
+      return app.games
+        .filter(game =>
+          Number.isFinite(game.awayFantasyPoints) &&
+          Number.isFinite(game.homeFantasyPoints) &&
+          Math.abs(game.awayFantasyPoints - game.homeFantasyPoints) < 0.000001 &&
+          (game.awayAdjustment !== 0 || game.homeAdjustment !== 0) &&
+          game.awayScore !== game.homeScore
+        )
+        .sort((a, b) => compareGamesChronologically(b, a));
+    }
+
+    function renderTiebreakers() {
+      const rows = getTiebreakerGames();
+      const winsByFranchise = new Map();
+
+      rows.forEach(game => {
+        const winnerId = game.awayScore > game.homeScore
+          ? game.awayFranchiseId
+          : game.homeFranchiseId;
+        winsByFranchise.set(winnerId, (winsByFranchise.get(winnerId) || 0) + 1);
+      });
+
+      const leaders = Array.from(winsByFranchise.entries())
+        .map(([franchiseId, wins]) => ({
+          franchiseId,
+          name: franchiseName(franchiseId),
+          wins
+        }))
+        .sort((a, b) => b.wins - a.wins || a.name.localeCompare(b.name));
+
+      const topWins = leaders[0]?.wins || 0;
+      const topNames = leaders
+        .filter(item => item.wins === topWins)
+        .map(item => item.name)
+        .join(" · ");
+
+      const seasonCount = new Set(rows.map(game => game.season)).size;
+      const latest = rows[0];
+
+      document.getElementById("tiebreakerSummary").innerHTML = `
+        <div class="mini-stat">
+          <span>Total Tiebreakers</span>
+          <strong>${rows.length}</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Most Tiebreaker Wins</span>
+          <strong style="font-size:17px">${escapeHtml(topNames || "—")}</strong>
+          <span style="margin-top:5px">${topWins || 0} each</span>
+        </div>
+        <div class="mini-stat">
+          <span>Seasons Represented</span>
+          <strong>${seasonCount}</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Most Recent</span>
+          <strong style="font-size:18px">${latest ? `${escapeHtml(latest.season)} W${latest.period}` : "—"}</strong>
+        </div>
+      `;
+
+      document.getElementById("tiebreakerBody").innerHTML = rows.length
+        ? rows.map(game => {
+            const awayWon = game.awayScore > game.homeScore;
+            const winnerName = awayWon ? game.awayName : game.homeName;
+            const loserName = awayWon ? game.homeName : game.awayName;
+            const winnerRaw = awayWon ? game.awayFantasyPoints : game.homeFantasyPoints;
+            const loserRaw = awayWon ? game.homeFantasyPoints : game.awayFantasyPoints;
+            const winnerAdjustment = awayWon ? game.awayAdjustment : game.homeAdjustment;
+            const winnerFinal = awayWon ? game.awayScore : game.homeScore;
+            const loserFinal = awayWon ? game.homeScore : game.awayScore;
+
+            return `
+              <tr>
+                <td>${escapeHtml(game.season)}</td>
+                <td>${game.period}</td>
+                <td class="team-column"><span class="team-name">${escapeHtml(winnerName)}</span></td>
+                <td class="team-column">${escapeHtml(loserName)}</td>
+                <td>${formatNumber(winnerRaw)}–${formatNumber(loserRaw)}</td>
+                <td class="positive">+${formatNumber(winnerAdjustment)}</td>
+                <td>${formatNumber(winnerFinal)}–${formatNumber(loserFinal)}</td>
+                <td class="team-column">${escapeHtml(game.dateRange || "—")}</td>
+              </tr>
+            `;
+          }).join("")
+        : `<tr><td colspan="8" class="empty">No tiebreaker adjustments were found.</td></tr>`;
+    }
+
+    function renderTeamVsLeague() {
+      const selectedFranchiseId = document.getElementById("teamVsLeagueSelect").value;
+      const selectedName = franchiseName(selectedFranchiseId);
+
+      if (!selectedFranchiseId) {
+        document.getElementById("teamVsLeagueSummary").innerHTML =
+          `<div class="empty" style="grid-column:1/-1">Choose a team.</div>`;
+        document.getElementById("teamVsLeagueBody").innerHTML =
+          `<tr><td colspan="9" class="empty">No team selected.</td></tr>`;
+        return;
+      }
+
+      const opponentMap = new Map();
+
+      const obtainOpponent = opponentId => {
+        if (!opponentMap.has(opponentId)) {
+          opponentMap.set(opponentId, {
+            opponentId,
+            opponentName: franchiseName(opponentId),
+            games: 0,
+            wins: 0,
+            losses: 0,
+            ties: 0,
+            pointsFor: 0,
+            pointsAgainst: 0
+          });
+        }
+        return opponentMap.get(opponentId);
+      };
+
+      app.games.forEach(game => {
+        let opponentId;
+        let pointsFor;
+        let pointsAgainst;
+
+        if (game.awayFranchiseId === selectedFranchiseId) {
+          opponentId = game.homeFranchiseId;
+          pointsFor = game.awayScore;
+          pointsAgainst = game.homeScore;
+        } else if (game.homeFranchiseId === selectedFranchiseId) {
+          opponentId = game.awayFranchiseId;
+          pointsFor = game.homeScore;
+          pointsAgainst = game.awayScore;
+        } else {
+          return;
+        }
+
+        if (opponentId === selectedFranchiseId) return;
+
+        const row = obtainOpponent(opponentId);
+        row.games += 1;
+        row.pointsFor += pointsFor;
+        row.pointsAgainst += pointsAgainst;
+
+        if (pointsFor > pointsAgainst) row.wins += 1;
+        else if (pointsFor < pointsAgainst) row.losses += 1;
+        else row.ties += 1;
+      });
+
+      const rows = Array.from(opponentMap.values())
+        .map(row => ({
+          ...row,
+          winPct: row.games
+            ? (row.wins + row.ties * 0.5) / row.games
+            : 0,
+          differential: row.pointsFor - row.pointsAgainst
+        }))
+        .sort((a, b) =>
+          b.wins - a.wins ||
+          b.winPct - a.winPct ||
+          b.differential - a.differential ||
+          a.opponentName.localeCompare(b.opponentName)
+        );
+
+      const total = rows.reduce(
+        (accumulator, row) => {
+          accumulator.games += row.games;
+          accumulator.wins += row.wins;
+          accumulator.losses += row.losses;
+          accumulator.ties += row.ties;
+          accumulator.pointsFor += row.pointsFor;
+          accumulator.pointsAgainst += row.pointsAgainst;
+          return accumulator;
+        },
+        {
+          games: 0,
+          wins: 0,
+          losses: 0,
+          ties: 0,
+          pointsFor: 0,
+          pointsAgainst: 0
+        }
+      );
+
+      const totalWinPct = total.games
+        ? (total.wins + total.ties * 0.5) / total.games
+        : 0;
+
+      document.getElementById("teamVsLeagueSummary").innerHTML = `
+        <div class="mini-stat">
+          <span>Selected Team</span>
+          <strong style="font-size:18px">${escapeHtml(selectedName)}</strong>
+        </div>
+        <div class="mini-stat">
+          <span>All-Time Record</span>
+          <strong>${total.wins}-${total.losses}</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Win Percentage</span>
+          <strong>${formatPct(totalWinPct)}</strong>
+        </div>
+        <div class="mini-stat">
+          <span>Points For / Against</span>
+          <strong>${formatNumber(total.pointsFor)} / ${formatNumber(total.pointsAgainst)}</strong>
+        </div>
+      `;
+
+      document.getElementById("teamVsLeagueBody").innerHTML = rows.length
+        ? rows.map((row, index) => `
+            <tr>
+              <td><span class="rank-number">${index + 1}</span></td>
+              <td class="team-column"><span class="team-name">${escapeHtml(row.opponentName)}</span></td>
+              <td>${row.games}</td>
+              <td>${row.wins}</td>
+              <td>${row.losses}</td>
+              <td>${formatPct(row.winPct)}</td>
+              <td>${formatNumber(row.pointsFor)}</td>
+              <td>${formatNumber(row.pointsAgainst)}</td>
+              <td class="${numberClass(row.differential)}">${formatSigned(row.differential)}</td>
+            </tr>
+          `).join("")
+        : `<tr><td colspan="9" class="empty">No completed matchups are available for this team.</td></tr>`;
+    }
+
     function renderFranchiseHistory() {
       const franchiseId = document.getElementById("franchiseSelect").value;
       const allTime = app.franchiseStats.find(item => item.franchiseId === franchiseId);
@@ -1891,7 +2194,7 @@
 
       document.getElementById("historySummary").innerHTML = allTime
         ? `
-          <div class="mini-stat"><span>All-Time Record</span><strong>${allTime.wins}-${allTime.losses}${allTime.ties ? `-${allTime.ties}` : ""}</strong></div>
+          <div class="mini-stat"><span>All-Time Record</span><strong>${allTime.wins}-${allTime.losses}</strong></div>
           <div class="mini-stat"><span>Win Percentage</span><strong>${formatPct(allTime.winPct)}</strong></div>
           <div class="mini-stat"><span>Names Used</span><strong>${names.length}</strong></div>
           <div class="mini-stat"><span>Longest W / L</span><strong>${longestWin?.length || 0} / ${longestLoss?.length || 0}</strong></div>
@@ -1909,7 +2212,6 @@
                 <td>${item.games}</td>
                 <td>${item.wins}</td>
                 <td>${item.losses}</td>
-                <td>${item.ties}</td>
                 <td>${formatPct(item.winPct)}</td>
                 <td>${formatNumber(item.pointsFor)}</td>
                 <td>${formatNumber(item.pointsAgainst)}</td>
@@ -1918,7 +2220,7 @@
               </tr>
             `;
           }).join("")
-        : `<tr><td colspan="12" class="empty">No season history available.</td></tr>`;
+        : `<tr><td colspan="11" class="empty">No season history available.</td></tr>`;
     }
 
     function ordinal(value) {
