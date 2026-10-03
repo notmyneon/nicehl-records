@@ -3,3 +3,5 @@
 #alumniTable th:nth-child(2),#alumniTable td:nth-child(2),#seasonTable th:nth-child(2),#seasonTable td:nth-child(2),#playerDetails th:nth-child(2),#playerDetails td:nth-child(2){text-align:left}#alumniTable td:nth-child(2){white-space:normal;min-width:190px}
 
 #leaderTable th:nth-child(2),#leaderTable td:nth-child(2){text-align:left}#leaderTable td:nth-child(2){min-width:190px}th[aria-sort]{color:var(--gold)}
+
+.player-link{background:none;border:0;padding:0;color:var(--gold);text-align:left}.player-link:hover{text-decoration:underline}
