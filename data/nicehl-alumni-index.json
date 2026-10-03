@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "seasons": [
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "franchises": {
+    "alberta-cobra-chickens": {
+      "file": "data/alumni/alberta-cobra-chickens.json",
+      "playerCount": 249
+    },
+    "bowness-ice-beavers": {
+      "file": "data/alumni/bowness-ice-beavers.json",
+      "playerCount": 210
+    },
+    "cachco-eagles": {
+      "file": "data/alumni/cachco-eagles.json",
+      "playerCount": 111
+    },
+    "maplewood-hc": {
+      "file": "data/alumni/maplewood-hc.json",
+      "playerCount": 178
+    },
+    "les-rois-de-lyon": {
+      "file": "data/alumni/les-rois-de-lyon.json",
+      "playerCount": 240
+    },
+    "driftless-hockey-club": {
+      "file": "data/alumni/driftless-hockey-club.json",
+      "playerCount": 321
+    },
+    "mt-pearl-vikings": {
+      "file": "data/alumni/mt-pearl-vikings.json",
+      "playerCount": 312
+    },
+    "pennant-pumpjacks": {
+      "file": "data/alumni/pennant-pumpjacks.json",
+      "playerCount": 225
+    },
+    "potomac-poutine": {
+      "file": "data/alumni/potomac-poutine.json",
+      "playerCount": 169
+    },
+    "rotterdam-red-foxes": {
+      "file": "data/alumni/rotterdam-red-foxes.json",
+      "playerCount": 349
+    },
+    "scotty": {
+      "file": "data/alumni/scotty.json",
+      "playerCount": 191
+    },
+    "seminole-road-snakeheads": {
+      "file": "data/alumni/seminole-road-snakeheads.json",
+      "playerCount": 51
+    },
+    "slick-city-jackals": {
+      "file": "data/alumni/slick-city-jackals.json",
+      "playerCount": 261
+    },
+    "steel-valley-fishercats": {
+      "file": "data/alumni/steel-valley-fishercats.json",
+      "playerCount": 321
+    },
+    "synth-city-sphynx": {
+      "file": "data/alumni/synth-city-sphynx.json",
+      "playerCount": 245
+    },
+    "woodland-whistle-pigs": {
+      "file": "data/alumni/woodland-whistle-pigs.json",
+      "playerCount": 312
+    },
+    "cantuar-slough-sharks": {
+      "file": "data/alumni/cantuar-slough-sharks.json",
+      "playerCount": 126
+    },
+    "rockaway-brattwursts": {
+      "file": "data/alumni/rockaway-brattwursts.json",
+      "playerCount": 114
+    },
+    "southside-hellbats": {
+      "file": "data/alumni/southside-hellbats.json",
+      "playerCount": 83
+    }
+  }
+}
