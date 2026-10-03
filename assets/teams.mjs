@@ -1,3 +1,4 @@
+import {enableTableSorting,sortableHeader} from './sortable-tables.mjs';
 import {buildModel,teamGames,summarise,longestStreak,alumniForSeason} from './franchise-model.mjs';
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -7,7 +8,7 @@ const pct=n=>(n*100).toFixed(1)+'%';
 const record=s=>`${s.wins}–${s.losses}${s.ties?'–'+s.ties:''}`;
 const colour=n=>n>0?'positive':n<0?'negative':'';
 const json=async path=>{const r=await fetch(path);if(!r.ok)throw Error(`Could not load ${path}`);return r.json();};
-const table=(headers,rows)=>`<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.length?rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${headers.length}" class="empty">No results for these filters.</td></tr>`}</tbody></table></div>`;
+const table=(headers,rows)=>`<div class="table-wrap"><table><thead><tr>${headers.map((h,i)=>`<th scope="col">${h.includes('<button')||h==='#'?h:sortableHeader(h,i)}</th>`).join('')}</tr></thead><tbody>${rows.length?rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${headers.length}" class="empty">No results for these filters.</td></tr>`}</tbody></table></div>`;
 let model,franchise,games,players,sort={key:'FPts',direction:-1};
 const franchiseName=id=>model.franchises.find(f=>f.id===id)?.currentName||id;
 const link=id=>`team.html?id=${encodeURIComponent(id)}`;
@@ -98,4 +99,5 @@ function renderGames(){const season=$('gameSeason').value,result=$('gameResult')
 function renderRivalries(){const ids=[...new Set(games.map(g=>g.opponentId))];const rows=ids.map(id=>({id,...summarise(games.filter(g=>g.opponentId===id))})).sort((a,b)=>b.games-a.games||franchiseName(a.id).localeCompare(franchiseName(b.id)));$('rivalryTable').innerHTML=table(['Opponent','GP','Record','Win %','PF','PA','Diff'],rows.map(s=>[`<a href="#rivalries" data-opponent="${s.id}">${esc(franchiseName(s.id))}</a>`,s.games,record(s),pct(s.winPct),number(s.pointsFor,1),number(s.pointsAgainst,1),`<span class="${colour(s.differential)}">${signed(s.differential)}</span>`]));}
 function showMatchups(id){$('matchupHistory').innerHTML=`<h3 style="margin:24px 0 12px">${esc(franchise.currentName)} vs ${esc(franchiseName(id))}</h3>`+table(['Season','Week','Opponent','Result','PF','PA','Diff','Dates'],gameRows(games.filter(g=>g.opponentId===id).slice().reverse()));$('matchupHistory').scrollIntoView({behavior:'smooth',block:'nearest'});}
 function selectSection(){const section=['overview','alumni','rivalries','games'].includes(location.hash.slice(1))?location.hash.slice(1):'overview';for(const id of ['overview','alumni','rivalries','games'])$(id).hidden=id!==section;document.querySelectorAll('[data-section]').forEach(a=>{if(a.dataset.section===section)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
+enableTableSorting(document);
 init();
