@@ -1,15 +1,15 @@
-import {leaguePlayers,sortPlayers} from './league-model.mjs';
-import {enableTableSorting,sortableHeader} from './sortable-tables.mjs';
+import {leaguePlayers,sortPlayers} from './league-model.mjs?v=team-rows-2';
+import {enableTableSorting,sortableHeader} from './sortable-tables.mjs?v=team-rows-2';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const number=(n,d=0)=>n==null?'—':Number(n).toLocaleString('en-CA',{maximumFractionDigits:d});
 let data,sort={key:'FPts',direction:-1};
 const categories=group=>group==='goalies'?['FPts','GP','FP/G','GS','W','L','OW','OL+ShL','GA','SHO','G','A']:group==='skaters'?['FPts','GP','FP/G','G','A','BP','ESP','PPP','SHP','HT','Blk']:['FPts','GP','FP/G','G','A','PPP','SHP'];
 function render(){
  const season=$('leaderSeason').value,group=$('leaderGroup').value,query=$('leaderSearch').value.trim().toLowerCase(),minimum=Number($('minimumGames').value)||0,columns=categories(group);
- if(![...columns,'playerName','seasonCount','teamName'].includes(sort.key))sort={key:'FPts',direction:-1};
+ if(![...columns,'playerName','seasonCount','teamName','teamCount'].includes(sort.key))sort={key:'FPts',direction:-1};
  const list=sortPlayers(leaguePlayers(data.players,season).filter(p=>(group==='all'||p.group===group)&&p.playerName.toLowerCase().includes(query)&&p.stats.GP>=minimum),sort.key,sort.direction);
  const header=(label,key)=>`<th scope="col" ${sort.key===key?`aria-sort="${sort.direction<0?'descending':'ascending'}"`:''}><button data-sort="${key}">${label}${sort.key===key?(sort.direction<0?' ↓':' ↑'):' ↕'}</button></th>`;
- $('leaderTable').innerHTML=`<div class="table-wrap"><table><thead><tr><th scope="col">#</th>${header('Player','playerName')}${header('Team','teamName')}${header('Seasons','seasonCount')}${columns.map(k=>header(k,k)).join('')}</tr></thead><tbody>${list.length?list.map((p,i)=>`<tr><td>${i+1}</td><td class="player"><a href="#" data-player="${p.index}" data-franchise="${esc(p.franchiseId)}">${esc(p.playerName)}</a><small>${p.group==='goalies'?'Goalie':'Skater'}</small></td><td class="player"><a href="team.html?id=${encodeURIComponent(p.franchiseId)}">${esc(p.teamName)}</a></td><td>${p.seasonCount}</td>${columns.map(k=>`<td>${number(p.stats[k],k==='FP/G'?2:1)}${p.stats[k]!=null&&p.coverage[k]<p.seasonStats.length?`<span title="Recorded in ${p.coverage[k]} of ${p.seasonStats.length} team-season stints">*</span>`:''}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${columns.length+4}" class="empty">No players match these filters.</td></tr>`}</tbody></table></div>`;
+ $('leaderTable').innerHTML=`<div class="table-wrap"><table><thead><tr><th scope="col">#</th>${header('Player','playerName')}${header('Team','teamName')}${header('Seasons','seasonCount')}${header('Teams','teamCount')}${columns.map(k=>header(k,k)).join('')}</tr></thead><tbody>${list.length?list.map((p,i)=>`<tr><td>${i+1}</td><td class="player"><a href="#" data-player="${p.index}" data-franchise="${esc(p.franchiseId)}">${esc(p.playerName)}</a><small>${p.group==='goalies'?'Goalie':'Skater'}</small></td><td class="player"><a href="team.html?id=${encodeURIComponent(p.franchiseId)}">${esc(p.teamName)}</a></td><td>${p.seasonCount}</td><td>${p.teamCount}</td>${columns.map(k=>`<td>${number(p.stats[k],k==='FP/G'?2:1)}${p.stats[k]!=null&&p.coverage[k]<p.seasonStats.length?`<span title="Recorded in ${p.coverage[k]} of ${p.seasonStats.length} team-season stints">*</span>`:''}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${columns.length+5}" class="empty">No players match these filters.</td></tr>`}</tbody></table></div>`;
  $('leaderCount').textContent=`${list.length} player-team entries · ${season==='all'?'All time, 2019–20 through 2025–26':season.replace('-','–')} · Sorted by ${sort.key}`;
 }
 function openPlayer(index,franchiseId){

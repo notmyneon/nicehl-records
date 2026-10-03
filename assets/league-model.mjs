@@ -7,7 +7,7 @@ export function leaguePlayers(players,season='all'){
   const teamName=[...parts].sort((a,b)=>a.season.localeCompare(b.season)).at(-1).teamName;
   const stats={},coverage={};for(const part of parts)for(const [key,value]of Object.entries(part.stats))if(key!=='FP/G'&&value!=null){stats[key]=(stats[key]||0)+value;coverage[key]=(coverage[key]||0)+1;}
   stats['FP/G']=stats.GP?stats.FPts/stats.GP:null;coverage['FP/G']=parts.length;
-  return {...p,index,franchiseId,teamName,stats,coverage,seasonStats:parts,seasons:[...new Set(parts.map(s=>s.season))].sort(),seasonCount:new Set(parts.map(s=>s.season)).size,teamCount:1};
+  return {...p,index,franchiseId,teamName,stats,coverage,seasonStats:parts,seasons:[...new Set(parts.map(s=>s.season))].sort(),seasonCount:new Set(parts.map(s=>s.season)).size,teamCount:teams.length};
   });
  });
 }
